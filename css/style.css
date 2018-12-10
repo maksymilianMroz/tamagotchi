@@ -1,0 +1,585 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700|Roboto:400,500&amp;subset=latin-ext");
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background: #6c6c6c; }
+
+.content {
+  position: relative;
+  width: 1000px;
+  height: 1200px;
+  margin: 3% auto; }
+
+.box {
+  margin: 0 auto;
+  box-shadow: 0px 0px 35px -2px rgba(0, 0, 0, 0.7); }
+
+.box__top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1200px;
+  border-radius: 20px;
+  background: #c4cdd4; }
+
+.doggy {
+  width: 75%;
+  height: 75%;
+  padding-top: 10%;
+  margin: 0 auto; }
+
+.doggy__head {
+  position: relative; }
+  .doggy__head .left--eye {
+    width: 0px;
+    height: 0px;
+    border: 0 solid transparent;
+    border-right-width: -11px;
+    border-left-width: 14px;
+    border-bottom: 20px solid;
+    transform: rotate(251.3deg) translate(-45px, 53px);
+    position: absolute;
+    z-index: 3; }
+    .doggy__head .left--eye::after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      color: #fff;
+      border: 0 solid transparent;
+      border-right-width: -11px;
+      border-left-width: 15px;
+      border-bottom: 20px solid;
+      transform: rotate(332.3deg) translate(-15px, 3px);
+      position: absolute; }
+  .doggy__head .muzzle {
+    width: 30px;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 70px;
+    border-left-width: 20px;
+    border-bottom: 109px solid;
+    color: #333;
+    transform: rotate(-90deg); }
+    .doggy__head .muzzle .nose {
+      width: 0px;
+      height: 0px;
+      border: 0 solid transparent;
+      border-right-width: 21px;
+      border-left-width: 19px;
+      border-bottom: 20px solid;
+      color: #000;
+      transform: rotate(29deg);
+      position: absolute;
+      bottom: -11px;
+      left: 100%;
+      z-index: -200; }
+    .doggy__head .muzzle .nose__two {
+      width: 0px;
+      height: 0px;
+      border: 0 solid transparent;
+      border-right-width: 108px;
+      border-left-width: 34px;
+      border-bottom: 18px solid;
+      color: #444;
+      transform: rotate(57.3deg);
+      position: absolute;
+      top: 46px;
+      left: 4px; }
+    .doggy__head .muzzle .tongue {
+      color: #b14021; }
+      .doggy__head .muzzle .tongue .tongue--1 {
+        width: 0px;
+        height: 0px;
+        border: 0 solid transparent;
+        border-right-width: -11px;
+        border-left-width: 14px;
+        border-bottom: 20px solid;
+        transform: rotate(152.3deg) translate(-15px, 3px);
+        position: absolute; }
+      .doggy__head .muzzle .tongue .tongue--2 {
+        width: 0px;
+        height: 0px;
+        border: 0 solid transparent;
+        border-right-width: -11px;
+        border-left-width: 14px;
+        border-bottom: 20px solid;
+        transform: rotate(-86.7deg) translate(14px, 1px);
+        position: absolute; }
+  .doggy__head .under--ear--triangle {
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 119px;
+    border-left-width: 1px;
+    border-bottom: 35px solid;
+    transform: translate(72px, 72px) rotate(90deg); }
+  .doggy__head .ear {
+    color: #444;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 21px;
+    border-left-width: 21px;
+    border-bottom: 31px solid;
+    transform: translate(115px, 38px) rotate(122deg); }
+
+.doggy__body {
+  position: relative;
+  z-index: 1; }
+  .doggy__body .neck {
+    color: #666;
+    box-sizing: border-box;
+    position: relative;
+    height: 0;
+    width: 0;
+    transform: rotate(57deg) translate(-43px, -59px);
+    border-top: 93px solid;
+    border-left: 80px solid transparent;
+    border-right: 125px solid;
+    border-bottom: 89px solid transparent; }
+    .doggy__body .neck .neck--hair {
+      transform: rotate(-39deg) translate(128px, 44px); }
+      .doggy__body .neck .neck--hair .neck--hair1 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(70deg) translate(-147px, 72px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .neck .neck--hair .neck--hair2 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(70deg) translate(-225px, 41px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .neck .neck--hair .neck--hair3 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(54deg) translate(-304px, -65px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .neck .neck--hair .neck--hair4 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(42deg) translate(-342px, -177px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+  .doggy__body .chest {
+    color: #666;
+    box-sizing: border-box;
+    position: relative;
+    height: 0;
+    width: 0;
+    transform: rotate(-37deg) translate(169px, 8px);
+    border-top: 137px solid;
+    border-left: 81px solid transparent;
+    border-right: 102px solid;
+    border-bottom: 31px solid transparent; }
+  .doggy__body .back {
+    position: relative; }
+    .doggy__body .back .back--part1 {
+      color: #888;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0px;
+      transform: rotate(175deg) translate(-281px, 308px);
+      border-left: 195px solid transparent;
+      border-right: 239px solid;
+      border-bottom: 146px solid transparent; }
+    .doggy__body .back .back--part2 {
+      color: #777;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0px;
+      transform: rotate(367deg) translate(249px, -311px);
+      border-left: 28px solid transparent;
+      border-right: 167px solid;
+      border-top: 20px solid;
+      border-bottom: 36px solid transparent; }
+    .doggy__body .back .back--part3 {
+      color: #444;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0px;
+      transform: rotate(-92deg) translate(307px, 459px);
+      border-left: 0px solid transparent;
+      border-right: 110px solid;
+      border-bottom: 220px solid transparent;
+      border-radius: 0 0 20px 0; }
+  .doggy__body .stomach {
+    color: #333;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: 0px;
+    transform: rotate(-98deg) translate(295px, 415px);
+    border-left: 0px solid transparent;
+    border-right: 79px solid;
+    border-top: 134px solid;
+    border-bottom: 214px solid transparent;
+    border-radius: 0 0 20px 0; }
+    .doggy__body .stomach .abdomen {
+      color: #444;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0px;
+      transform: rotate(62deg) translate(-272px, -100px);
+      border-left: 0px solid transparent;
+      border-right: 110px solid;
+      border-bottom: 220px solid transparent;
+      border-radius: 0 0 20px 0; }
+      .doggy__body .stomach .abdomen .abdomen--hair1 {
+        color: #444;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(70deg) translate(-141px, 102px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .stomach .abdomen .abdomen--hair2 {
+        color: #444;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(70deg) translate(-225px, 41px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .stomach .abdomen .abdomen--hair3 {
+        color: #444;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(54deg) translate(-304px, -65px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .stomach .abdomen .abdomen--hair4 {
+        color: #444;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(42deg) translate(-342px, -177px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+    .doggy__body .stomach .stomach--smth {
+      color: #888;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0px;
+      transform: rotate(125deg) translate(-402px, -7px);
+      border-left: 0px solid transparent;
+      border-right: 110px solid;
+      border-bottom: 220px solid transparent;
+      border-radius: 0 0 20px 0; }
+  .doggy__body .tail {
+    position: relative; }
+    .doggy__body .tail .tail--top {
+      color: #888;
+      box-sizing: border-box;
+      position: relative;
+      height: 0;
+      width: 0;
+      transform: rotate(80deg) translate(-353px, -555px);
+      border-left: 195px solid transparent;
+      border-right: 48px solid;
+      border-bottom: 100px solid transparent; }
+      .doggy__body .tail .tail--top .tail--top--2 {
+        color: #888;
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: 0;
+        transform: rotate(38deg) translate(-210px, 5px);
+        border-left: 195px solid transparent;
+        border-right: 48px solid;
+        border-bottom: 100px solid transparent; }
+      .doggy__body .tail .tail--top .tail--top--3 {
+        color: #888;
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: 0;
+        transform: rotate(246deg) translate(-8px, 40px);
+        border-left: 195px solid transparent;
+        border-right: 48px solid;
+        border-bottom: 100px solid transparent; }
+    .doggy__body .tail .tail--bottom {
+      color: #444;
+      box-sizing: border-box;
+      position: relative;
+      height: 105px;
+      width: 0;
+      transform: rotate(87deg) translate(-486px, -534px);
+      border-left: 177px solid transparent;
+      border-right: 12px solid;
+      border-bottom: 78px solid transparent; }
+      .doggy__body .tail .tail--bottom .tail--bottom--2 {
+        color: #444;
+        box-sizing: border-box;
+        position: absolute;
+        height: 105px;
+        width: 0;
+        transform: rotate(38deg) translate(-212px, -20px);
+        border-left: 177px solid transparent;
+        border-right: 12px solid;
+        border-bottom: 78px solid transparent; }
+  .doggy__body .left--paw .left--paw--front {
+    color: #666;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: 0;
+    transform: rotate(10deg) translate(59px, -152px);
+    border-top: 217px solid;
+    border-left: 107px solid transparent;
+    border-bottom: 52px solid transparent;
+    z-index: -1; }
+  .doggy__body .left--paw .left--paw--back {
+    color: #999;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: 0;
+    transform: rotate(17deg) translate(49px, -172px);
+    border-top: 217px solid;
+    border-left: 107px solid transparent;
+    border-bottom: 52px solid transparent;
+    z-index: -2; }
+  .doggy__body .right--paw .right--paw--front {
+    color: #999;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: 0;
+    transform: rotate(30deg) translate(-43px, -153px);
+    border-top: 217px solid;
+    border-left: 107px solid transparent;
+    border-bottom: 52px solid transparent;
+    z-index: -2; }
+  .doggy__body .left--back--paw {
+    position: relative; }
+    .doggy__body .left--back--paw .thigh {
+      color: #666;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0;
+      transform: rotate(-269deg) translate(-269px, -410px);
+      border-top: 137px solid;
+      border-left: 81px solid transparent;
+      border-right: 102px solid;
+      border-bottom: 31px solid transparent;
+      z-index: 1; }
+      .doggy__body .left--back--paw .thigh .thigh--hair1 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(76px, 45px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .left--back--paw .thigh .thigh--hair2 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(155px, 61px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .left--back--paw .thigh .thigh--hair3 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(233px, 74px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+      .doggy__body .left--back--paw .thigh .thigh--hair4 {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(313px, 91px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent; }
+    .doggy__body .left--back--paw .calf {
+      color: #333;
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      border-left: 58px solid transparent;
+      border-top: 0px solid transparent;
+      border-right: 67px solid;
+      border-bottom: 112px solid;
+      transform: rotate(63deg) translate(109px, -476px);
+      z-index: 0; }
+      .doggy__body .left--back--paw .calf .calf--cut {
+        color: #c4cdd4;
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: 0;
+        transform: rotate(-121deg) translate(-70px, 58px);
+        border-top: 105px solid;
+        border-left: 81px solid transparent;
+        border-bottom: 31px solid transparent; }
+    .doggy__body .left--back--paw .feet {
+      color: #999;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0;
+      transform: rotate(-27deg) translate(517px, 238px);
+      border-top: 105px solid;
+      border-left: 81px solid transparent;
+      border-bottom: 31px solid transparent; }
+  .doggy__body .right--back--paw {
+    position: relative;
+    z-index: -3; }
+    .doggy__body .right--back--paw .thigh--r {
+      color: #999;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0;
+      transform: rotate(-269deg) translate(-271px, -381px);
+      border-top: 136px solid;
+      border-left: 57px solid transparent;
+      border-right: 102px solid;
+      border-bottom: 31px solid transparent;
+      z-index: -9; }
+      .doggy__body .right--back--paw .thigh--r .thigh--hair1--r {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(76px, 45px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent;
+        z-index: -101; }
+      .doggy__body .right--back--paw .thigh--r .thigh--hair2--r {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(155px, 61px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent;
+        z-index: -101; }
+      .doggy__body .right--back--paw .thigh--r .thigh--hair3--r {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(233px, 74px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent;
+        z-index: -101; }
+      .doggy__body .right--back--paw .thigh--r .thigh--hair4--r {
+        color: #666;
+        box-sizing: border-box;
+        height: 105px;
+        width: 0;
+        transform: rotate(254deg) translate(313px, 91px);
+        border-left: 177px solid transparent;
+        border-right: 39px solid;
+        border-bottom: 85px solid transparent;
+        z-index: -101; }
+    .doggy__body .right--back--paw .calf--r {
+      color: #999;
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      border-left: 25px solid transparent;
+      border-top: 0px solid transparent;
+      border-right: 112px solid;
+      border-bottom: 140px solid;
+      transform: rotate(116deg) translate(-318px, -273px);
+      z-index: -5; }
+      .doggy__body .right--back--paw .calf--r .calf--cut--r {
+        color: #c4cdd4;
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: 0;
+        transform: rotate(-114deg) translate(-97px, 66px);
+        border-top: 105px solid;
+        border-left: 81px solid transparent;
+        border-bottom: 31px solid transparent; }
+    .doggy__body .right--back--paw .feet--r {
+      color: #999;
+      box-sizing: border-box;
+      position: absolute;
+      height: 0;
+      width: 0;
+      transform: rotate(-90deg) translate(28px, 139px);
+      border-top: 105px solid;
+      border-left: 81px solid transparent;
+      border-bottom: 31px solid transparent; }
+
+.box__bottom {
+  height: 100px;
+  width: 90%;
+  position: absolute;
+  bottom: 10%;
+  box-shadow: none;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background: #e15941;
+  margin: 5%; }
+
+.buttons {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 3%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; }
+
+button {
+  width: 130px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 1.1em;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  transition: 0.2s ease-in-out;
+  cursor: pointer; }
+  button:hover {
+    background: #e27162;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
+    box-shadow: 0px 0px 35px -2px white; }
+
+/*# sourceMappingURL=style.css.map */
