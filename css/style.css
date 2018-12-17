@@ -1,585 +1,757 @@
-@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700|Roboto:400,500&amp;subset=latin-ext");
-* {
-  padding: 0;
-  margin: 0; }
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700|Roboto:400,500&amp;subset=latin-ext');
 
-body {
-  background: #6c6c6c; }
+*, *::before, *::after {
+     box-sizing: border-box;
+     padding: 0;
+     margin: 0;
+     -webkit-overflow-scrolling: touch;
+}
 
-.content {
+/*I created here few colors - cause don't like template ones (like normal grey or black, etc.)*/
+:root {
+     --grey: rgba(220,220,220,.75);
+     --grey2: rgba(200,200,200,.75);
+     --black: rgba(51,51,51,1);
+     --yellow: rgba(252, 241, 161,1);
+     --red: rgba(255, 80, 80,1);
+     --grelack: rgba(102,102,102,1);
+     --orange: rgba(241, 132, 23, 1);
+     --gradient: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.35));
+     --whiteGradient: linear-gradient(145deg, rgba(255,255,255,0), rgba(255,255,255,.35))
+}
+
+html, body {
+     padding: 0;
+     margin: 0;
+     font-family: 'Roboto', sans-serif;
+     height: 100%;
+     width: 100%;
+}
+
+
+a {
+     text-decoration: none;
+     color: #fff;
+}
+
+a:hover {
+     opacity: 0.9;
+
+}
+
+h1 {
+     letter-spacing: 0.01em;
+     line-height: 0.8em;
+     font-size: 2.2em;
+}
+
+
+/* WE'VE GOT NAVIGATION HERE - FIRST PART: UL NAV, SECONAD PART: MY HAMBURGER MADE BY SPANS */
+
+/*HERE WE'VE GOT NAV - SMARTPHONE-LIKE DIMENSIONS (WHICH IS DEFAULT)*/
+nav {
+     position: fixed;
+     z-index: 999;
+     top: 0;
+     font-family: 'Roboto', sans-serif;
+     font-weight: bold;
+     letter-spacing: .3em;
+     font-size: 1.8em;
+     height: 100%;
+     width: 100%;
+     background: var(--black);
+     left: -100%;
+     transition: .35s ease-in-out;
+     line-height: 160%;
+}
+
+nav ul {
+     margin: 0;
+     padding: 0;
+     padding-top: 30vh;
+     list-style: none;
+     height: 100%;
+     position: relative;
+}
+
+nav ul li {
+     margin-top: .4em;
+     margin-bottom: .4em;
+     cursor: pointer;
+     text-align: center;
+}
+
+
+/*AND HAMBURGER IS HERE - IT WILL NOT BE PRESENT IN BIGGER DIMENSIONS*/
+#nav {
+     position: fixed;
+     z-index: 999;
+     width: 60px;
+     height: 45px;
+     margin: 20px 20px;;
+     -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+     -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+     -webkit-transition: .5s ease-in-out;
+     -moz-transition: .5s ease-in-out;
+     -o-transition: .5s ease-in-out;
+     transition: .5s ease-in-out;
+     cursor: pointer;
+}
+
+#nav span {
+     position: absolute;
+     height: 9px;
+     width: 100%;
+     background: var(--black);
+     background-image: var(--whiteGradient);
+     border-radius: 11px;
+     opacity: 1;
+     -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+     -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+     -webkit-transition: .25s ease-in-out;
+     -moz-transition: .25s ease-in-out;
+     -o-transition: .25s ease-in-out;
+     transition: .25s ease-in-out;
+}
+
+#nav span:nth-child(1) {
+  top: 0px;
+}
+
+#nav span:nth-child(2),
+#nav span:nth-child(3) {
+  top: 18px;
+}
+
+#nav span:nth-child(2) {
+     opacity: 0;
+}
+
+#nav span:nth-child(4) {
+  top: 36px;
+}
+
+#nav.open span:nth-child(1) {
+     opacity: 0;
+
+}
+
+#nav.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  opacity: 1;
+  background: var(--red);
+}
+
+#nav.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background: var(--red);
+}
+
+#nav.open span:nth-child(4) {
+  opacity: 0;
+}
+
+/*THIS GUY WORKS WITH MY JQUERY TO OPEN NAV-BAR WITH HAMBURGER BUTTON - IN THE SAME TIME CHANGE BUTTON (TO CROSS) AND SLIDE MENU FROM THE LEFT*/
+
+.open-my-nav {
+     left: 0;
+     transform: rotate(0deg);
+     transition: .65s ease-in-out;
+}
+
+nav ul li a:hover {
+     color: var(--red);
+     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+/*EDITING NAV WHEN IT HITS TO 900px+*/
+
+@media screen and (min-width: 1170px) {
+     nav {
+          position: fixed;
+          z-index: 999;
+          top: 0;
+          text-transform: uppercase;
+          font-family: 'Roboto', sans-serif;
+          font-weight: bold;
+          letter-spacing: .2em;
+          font-size: 1.6em;
+          color: var(--grey);
+          height: 100%;
+          min-width: 12em;
+          max-width: 12em;
+          background: var(--black);
+          left: 0;
+          transition: .35s ease-in-out;
+     }
+
+     nav ul {
+          margin: 0;
+          padding: 0;
+          padding-top: 30vh;
+          list-style: none;
+          height: 100%;
+          position: relative;
+          left: 20%;
+          top: 5%;
+     }
+
+     nav ul li {
+          cursor: pointer;
+          text-align: left;
+          margin-top: .4em;
+          margin-bottom: .4em;
+          margin-left: 10%;
+     }
+
+     #nav {
+          display: none;
+     }
+
+     .content {
+          padding-left: 19.2em;
+     }
+}
+/* NAV SECTION ENDS HERE */
+
+section {
+     position: relative;
+     width: 100%;
+     height: 100vh;
+     color: var(--black);
+}
+
+.say-hello {
+     position: absolute;
+     transform: translate(50%, 75%);
+     line-height: 160%;
+     padding-top: 0.2em;
+     right: 4.2em;
+     letter-spacing: 0.01em;
+     line-height: 0.8em;
+     font-size: 2.4em;
+}
+
+
+.short-bussines-card {
+     position: absolute;
+     right: 0;
+     top: 55%;
+     width: 82%;
+     border-radius: 2px;
+}
+
+.short-bussines-card-content {
+     background: var(--grey);
+     background-image: var(--gradient);
+     text-align: justify;
+     padding: 10px 10px;
+     border-radius: 14px 0 0 14px;
+     font-size: 0.93em;
+     font-family: 'Roboto';
+     font-weight: 500;
+     color: var(--black);
+     text-shadow: 1px 1px 1px var(--grelack);
+}
+
+.short-bussines-card-icons {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     font-size: 3.1em;
+     text-align: center;
+     width: 70%;
+     float: right;
+     padding-top: 0.3em;
+}
+
+.git-icon, .contact-icon {
+     cursor: pointer;
+     z-index: 99;
+     transition: 0.1s;
+     color: var(--black);
+}
+
+.git-icon:hover, .contact-icon:hover {
+     color: var(--red);
+     transition: 0.2s;
+}
+
+
+
+.techs {
+     width: 100%;
+     font-size: 1em;
+     height: 60%;;
+     padding-bottom: 10%;
+     padding-top: 10%;
+     margin: 0 auto;
+     background: var(--grey);
+     color: var(--black);
+     background-color: var(--grey2);
+     background-image: var(--gradient);
+     white-space: nowrap;
+     overflow: scroll;
+     -webkit-overflow-scrolling: touch;
+}
+
+
+.techs > .html, .css, .git, .js, .rwd, .other {
+     background: var(--red);
+     background-image: var(--gradient);
+     position: relative;
+     display: inline-block;
+     margin: 5%;
+     padding-top: 20%;
+     width: 15em;
+     height: 15em;
+     text-align: center;
+     border-radius: 0.5em;
+     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+     overflow: hidden;
+     -webkit-overflow-scrolling: touch;
+}
+
+.git {
+     display: none;
+}
+
+.techs_description {
+     position: absolute;
+     top: 90%;
+     width: 100%;
+     height: 115%;
+     background: var(--grey2);
+     transition: 0.25s ease-in-out;
+     border-radius: 30px;
+     padding-top: 2px;
+}
+
+.techs_description:hover {
+     top: -15%;
+     transition: 0.25s ease-in-out;
+     border-radius: 0;
+}
+
+.html:hover, .css:hover, .git:hover, .js:hover, .rwd:hover, .other:hover {
+     opacity: 0.98;
+     -webkit-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
+     box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
+     transition: 0.25s ease-in-out;
+}
+
+.stars {
+     font-size: 1.8em;
+     padding-top: 5px;
+     color: var(--yellow);
+}
+
+.black-star {
+     color: var(--black);
+}
+
+.portfolio {
+     max-width: 100vw;
+     font-size: 1em;
+     margin-bottom: 7em;
+     height: auto;
+     padding-top: 15%;
+     width: 100%;
+}
+
+
+.portfolio-item {
+     margin: 0 auto;
+     padding: 10vw auto;
+     width: 90%;
+     padding-top: 4vh;
+     display: block;
+}
+
+.portfolio > h2 {
+     padding: 0;
+     position: relative;
+     bottom: 80%;
+     padding-left: 25%;
+     font-size: 2.4em;
+     text-shadow: -1px 1px 1px var(--grelack);
+}
+
+.techs > h2 {
+     padding: 0;
+     position: relative;
+     right: 25%;
+     left:25%;
+     bottom: 100%;
+     font-size: 2.4em;
+     text-shadow: -1px 1px 1px var(--grelack);
+}
+
+.portfolio-item-description {
+     background: var(--grey);
+     padding: 3px;
+     text-align: justify;
+     color: var(--black);
+     width: 100%;
+     text-align: justify;
+     font-size: 0.7em;
+}
+
+.portfolio-item-description h5 {
+     font-size: 1.3em;
+     text-align: center;
+}
+
+
+.portfolio-item, img {
+     width: 100%;
+     height: auto;
+}
+
+
+footer {
   position: relative;
-  width: 1000px;
-  height: 1200px;
-  margin: 3% auto; }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--black);
+  text-align: center;
+  height: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: var(--black);
+  background-color: var(--grey2);
+  background-image: var(--gradient);
+  border-top: 10px solid var(--black);
+  border-bottom: 10px solid var(--black);
+}
 
-.box {
-  margin: 0 auto;
-  box-shadow: 0px 0px 35px -2px rgba(0, 0, 0, 0.7); }
+footer > h4 {
+     font-weight: 400;
+     padding: 3%;
+     font-family: 'Roboto';
+     font-weight: bold;
+}
 
-.box__top {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 1200px;
-  border-radius: 20px;
-  background: #c4cdd4; }
+footer > p {
+     font-weight: 400;
+     padding: 3%;
+}
 
-.doggy {
-  width: 75%;
-  height: 75%;
-  padding-top: 10%;
-  margin: 0 auto; }
 
-.doggy__head {
-  position: relative; }
-  .doggy__head .left--eye {
-    width: 0px;
-    height: 0px;
-    border: 0 solid transparent;
-    border-right-width: -11px;
-    border-left-width: 14px;
-    border-bottom: 20px solid;
-    transform: rotate(251.3deg) translate(-45px, 53px);
-    position: absolute;
-    z-index: 3; }
-    .doggy__head .left--eye::after {
-      content: "";
-      width: 0px;
-      height: 0px;
-      color: #fff;
-      border: 0 solid transparent;
-      border-right-width: -11px;
-      border-left-width: 15px;
-      border-bottom: 20px solid;
-      transform: rotate(332.3deg) translate(-15px, 3px);
-      position: absolute; }
-  .doggy__head .muzzle {
-    width: 30px;
-    height: 0;
-    border: 0 solid transparent;
-    border-right-width: 70px;
-    border-left-width: 20px;
-    border-bottom: 109px solid;
-    color: #333;
-    transform: rotate(-90deg); }
-    .doggy__head .muzzle .nose {
-      width: 0px;
-      height: 0px;
-      border: 0 solid transparent;
-      border-right-width: 21px;
-      border-left-width: 19px;
-      border-bottom: 20px solid;
-      color: #000;
-      transform: rotate(29deg);
-      position: absolute;
-      bottom: -11px;
-      left: 100%;
-      z-index: -200; }
-    .doggy__head .muzzle .nose__two {
-      width: 0px;
-      height: 0px;
-      border: 0 solid transparent;
-      border-right-width: 108px;
-      border-left-width: 34px;
-      border-bottom: 18px solid;
-      color: #444;
-      transform: rotate(57.3deg);
-      position: absolute;
-      top: 46px;
-      left: 4px; }
-    .doggy__head .muzzle .tongue {
-      color: #b14021; }
-      .doggy__head .muzzle .tongue .tongue--1 {
-        width: 0px;
-        height: 0px;
-        border: 0 solid transparent;
-        border-right-width: -11px;
-        border-left-width: 14px;
-        border-bottom: 20px solid;
-        transform: rotate(152.3deg) translate(-15px, 3px);
-        position: absolute; }
-      .doggy__head .muzzle .tongue .tongue--2 {
-        width: 0px;
-        height: 0px;
-        border: 0 solid transparent;
-        border-right-width: -11px;
-        border-left-width: 14px;
-        border-bottom: 20px solid;
-        transform: rotate(-86.7deg) translate(14px, 1px);
-        position: absolute; }
-  .doggy__head .under--ear--triangle {
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-right-width: 119px;
-    border-left-width: 1px;
-    border-bottom: 35px solid;
-    transform: translate(72px, 72px) rotate(90deg); }
-  .doggy__head .ear {
-    color: #444;
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-right-width: 21px;
-    border-left-width: 21px;
-    border-bottom: 31px solid;
-    transform: translate(115px, 38px) rotate(122deg); }
+/* TUTAJ */
+/* BĘDZIE */
+/* SIĘ */
+/* DZIAŁO */
+/* R */
+/* W */
+/* D */
+/* POD */
+/* SPODEM */
 
-.doggy__body {
-  position: relative;
-  z-index: 1; }
-  .doggy__body .neck {
-    color: #666;
-    box-sizing: border-box;
-    position: relative;
-    height: 0;
-    width: 0;
-    transform: rotate(57deg) translate(-43px, -59px);
-    border-top: 93px solid;
-    border-left: 80px solid transparent;
-    border-right: 125px solid;
-    border-bottom: 89px solid transparent; }
-    .doggy__body .neck .neck--hair {
-      transform: rotate(-39deg) translate(128px, 44px); }
-      .doggy__body .neck .neck--hair .neck--hair1 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(70deg) translate(-147px, 72px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .neck .neck--hair .neck--hair2 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(70deg) translate(-225px, 41px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .neck .neck--hair .neck--hair3 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(54deg) translate(-304px, -65px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .neck .neck--hair .neck--hair4 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(42deg) translate(-342px, -177px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-  .doggy__body .chest {
-    color: #666;
-    box-sizing: border-box;
-    position: relative;
-    height: 0;
-    width: 0;
-    transform: rotate(-37deg) translate(169px, 8px);
-    border-top: 137px solid;
-    border-left: 81px solid transparent;
-    border-right: 102px solid;
-    border-bottom: 31px solid transparent; }
-  .doggy__body .back {
-    position: relative; }
-    .doggy__body .back .back--part1 {
-      color: #888;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0px;
-      transform: rotate(175deg) translate(-281px, 308px);
-      border-left: 195px solid transparent;
-      border-right: 239px solid;
-      border-bottom: 146px solid transparent; }
-    .doggy__body .back .back--part2 {
-      color: #777;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0px;
-      transform: rotate(367deg) translate(249px, -311px);
-      border-left: 28px solid transparent;
-      border-right: 167px solid;
-      border-top: 20px solid;
-      border-bottom: 36px solid transparent; }
-    .doggy__body .back .back--part3 {
-      color: #444;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0px;
-      transform: rotate(-92deg) translate(307px, 459px);
-      border-left: 0px solid transparent;
-      border-right: 110px solid;
-      border-bottom: 220px solid transparent;
-      border-radius: 0 0 20px 0; }
-  .doggy__body .stomach {
-    color: #333;
-    box-sizing: border-box;
-    position: absolute;
-    height: 0;
-    width: 0px;
-    transform: rotate(-98deg) translate(295px, 415px);
-    border-left: 0px solid transparent;
-    border-right: 79px solid;
-    border-top: 134px solid;
-    border-bottom: 214px solid transparent;
-    border-radius: 0 0 20px 0; }
-    .doggy__body .stomach .abdomen {
-      color: #444;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0px;
-      transform: rotate(62deg) translate(-272px, -100px);
-      border-left: 0px solid transparent;
-      border-right: 110px solid;
-      border-bottom: 220px solid transparent;
-      border-radius: 0 0 20px 0; }
-      .doggy__body .stomach .abdomen .abdomen--hair1 {
-        color: #444;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(70deg) translate(-141px, 102px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .stomach .abdomen .abdomen--hair2 {
-        color: #444;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(70deg) translate(-225px, 41px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .stomach .abdomen .abdomen--hair3 {
-        color: #444;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(54deg) translate(-304px, -65px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .stomach .abdomen .abdomen--hair4 {
-        color: #444;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(42deg) translate(-342px, -177px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-    .doggy__body .stomach .stomach--smth {
-      color: #888;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0px;
-      transform: rotate(125deg) translate(-402px, -7px);
-      border-left: 0px solid transparent;
-      border-right: 110px solid;
-      border-bottom: 220px solid transparent;
-      border-radius: 0 0 20px 0; }
-  .doggy__body .tail {
-    position: relative; }
-    .doggy__body .tail .tail--top {
-      color: #888;
-      box-sizing: border-box;
-      position: relative;
-      height: 0;
-      width: 0;
-      transform: rotate(80deg) translate(-353px, -555px);
-      border-left: 195px solid transparent;
-      border-right: 48px solid;
-      border-bottom: 100px solid transparent; }
-      .doggy__body .tail .tail--top .tail--top--2 {
-        color: #888;
-        box-sizing: border-box;
-        position: absolute;
-        height: 0;
-        width: 0;
-        transform: rotate(38deg) translate(-210px, 5px);
-        border-left: 195px solid transparent;
-        border-right: 48px solid;
-        border-bottom: 100px solid transparent; }
-      .doggy__body .tail .tail--top .tail--top--3 {
-        color: #888;
-        box-sizing: border-box;
-        position: absolute;
-        height: 0;
-        width: 0;
-        transform: rotate(246deg) translate(-8px, 40px);
-        border-left: 195px solid transparent;
-        border-right: 48px solid;
-        border-bottom: 100px solid transparent; }
-    .doggy__body .tail .tail--bottom {
-      color: #444;
-      box-sizing: border-box;
-      position: relative;
-      height: 105px;
-      width: 0;
-      transform: rotate(87deg) translate(-486px, -534px);
-      border-left: 177px solid transparent;
-      border-right: 12px solid;
-      border-bottom: 78px solid transparent; }
-      .doggy__body .tail .tail--bottom .tail--bottom--2 {
-        color: #444;
-        box-sizing: border-box;
-        position: absolute;
-        height: 105px;
-        width: 0;
-        transform: rotate(38deg) translate(-212px, -20px);
-        border-left: 177px solid transparent;
-        border-right: 12px solid;
-        border-bottom: 78px solid transparent; }
-  .doggy__body .left--paw .left--paw--front {
-    color: #666;
-    box-sizing: border-box;
-    position: absolute;
-    height: 0;
-    width: 0;
-    transform: rotate(10deg) translate(59px, -152px);
-    border-top: 217px solid;
-    border-left: 107px solid transparent;
-    border-bottom: 52px solid transparent;
-    z-index: -1; }
-  .doggy__body .left--paw .left--paw--back {
-    color: #999;
-    box-sizing: border-box;
-    position: absolute;
-    height: 0;
-    width: 0;
-    transform: rotate(17deg) translate(49px, -172px);
-    border-top: 217px solid;
-    border-left: 107px solid transparent;
-    border-bottom: 52px solid transparent;
-    z-index: -2; }
-  .doggy__body .right--paw .right--paw--front {
-    color: #999;
-    box-sizing: border-box;
-    position: absolute;
-    height: 0;
-    width: 0;
-    transform: rotate(30deg) translate(-43px, -153px);
-    border-top: 217px solid;
-    border-left: 107px solid transparent;
-    border-bottom: 52px solid transparent;
-    z-index: -2; }
-  .doggy__body .left--back--paw {
-    position: relative; }
-    .doggy__body .left--back--paw .thigh {
-      color: #666;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0;
-      transform: rotate(-269deg) translate(-269px, -410px);
-      border-top: 137px solid;
-      border-left: 81px solid transparent;
-      border-right: 102px solid;
-      border-bottom: 31px solid transparent;
-      z-index: 1; }
-      .doggy__body .left--back--paw .thigh .thigh--hair1 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(76px, 45px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .left--back--paw .thigh .thigh--hair2 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(155px, 61px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .left--back--paw .thigh .thigh--hair3 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(233px, 74px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-      .doggy__body .left--back--paw .thigh .thigh--hair4 {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(313px, 91px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent; }
-    .doggy__body .left--back--paw .calf {
-      color: #333;
-      width: 0px;
-      height: 0px;
-      position: absolute;
-      border-left: 58px solid transparent;
-      border-top: 0px solid transparent;
-      border-right: 67px solid;
-      border-bottom: 112px solid;
-      transform: rotate(63deg) translate(109px, -476px);
-      z-index: 0; }
-      .doggy__body .left--back--paw .calf .calf--cut {
-        color: #c4cdd4;
-        box-sizing: border-box;
-        position: absolute;
-        height: 0;
-        width: 0;
-        transform: rotate(-121deg) translate(-70px, 58px);
-        border-top: 105px solid;
-        border-left: 81px solid transparent;
-        border-bottom: 31px solid transparent; }
-    .doggy__body .left--back--paw .feet {
-      color: #999;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0;
-      transform: rotate(-27deg) translate(517px, 238px);
-      border-top: 105px solid;
-      border-left: 81px solid transparent;
-      border-bottom: 31px solid transparent; }
-  .doggy__body .right--back--paw {
-    position: relative;
-    z-index: -3; }
-    .doggy__body .right--back--paw .thigh--r {
-      color: #999;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0;
-      transform: rotate(-269deg) translate(-271px, -381px);
-      border-top: 136px solid;
-      border-left: 57px solid transparent;
-      border-right: 102px solid;
-      border-bottom: 31px solid transparent;
-      z-index: -9; }
-      .doggy__body .right--back--paw .thigh--r .thigh--hair1--r {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(76px, 45px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent;
-        z-index: -101; }
-      .doggy__body .right--back--paw .thigh--r .thigh--hair2--r {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(155px, 61px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent;
-        z-index: -101; }
-      .doggy__body .right--back--paw .thigh--r .thigh--hair3--r {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(233px, 74px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent;
-        z-index: -101; }
-      .doggy__body .right--back--paw .thigh--r .thigh--hair4--r {
-        color: #666;
-        box-sizing: border-box;
-        height: 105px;
-        width: 0;
-        transform: rotate(254deg) translate(313px, 91px);
-        border-left: 177px solid transparent;
-        border-right: 39px solid;
-        border-bottom: 85px solid transparent;
-        z-index: -101; }
-    .doggy__body .right--back--paw .calf--r {
-      color: #999;
-      width: 0px;
-      height: 0px;
-      position: absolute;
-      border-left: 25px solid transparent;
-      border-top: 0px solid transparent;
-      border-right: 112px solid;
-      border-bottom: 140px solid;
-      transform: rotate(116deg) translate(-318px, -273px);
-      z-index: -5; }
-      .doggy__body .right--back--paw .calf--r .calf--cut--r {
-        color: #c4cdd4;
-        box-sizing: border-box;
-        position: absolute;
-        height: 0;
-        width: 0;
-        transform: rotate(-114deg) translate(-97px, 66px);
-        border-top: 105px solid;
-        border-left: 81px solid transparent;
-        border-bottom: 31px solid transparent; }
-    .doggy__body .right--back--paw .feet--r {
-      color: #999;
-      box-sizing: border-box;
-      position: absolute;
-      height: 0;
-      width: 0;
-      transform: rotate(-90deg) translate(28px, 139px);
-      border-top: 105px solid;
-      border-left: 81px solid transparent;
-      border-bottom: 31px solid transparent; }
 
-.box__bottom {
-  height: 100px;
-  width: 90%;
-  position: absolute;
-  bottom: 10%;
-  box-shadow: none;
-  border: 1px solid #000;
-  border-radius: 20px;
-  background: #e15941;
-  margin: 5%; }
 
-.buttons {
-  width: 90%;
-  margin: 0 auto;
-  padding-top: 3%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; }
+@media screen and (min-width: 420px) {
+     /* width */
+     ::-webkit-scrollbar {
+         width: 10px;
+     }
 
-button {
-  width: 130px;
-  height: 40px;
-  margin: 0 auto;
-  border-radius: 1.1em;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 1.2em;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
-  transition: 0.2s ease-in-out;
-  cursor: pointer; }
-  button:hover {
-    background: #e27162;
-    color: #fff;
-    transition: 0.3s ease-in-out;
-    text-decoration: underline;
-    box-shadow: 0px 0px 35px -2px white; }
+     /* Track */
+     ::-webkit-scrollbar-track {
+         background: #f1f1f1;
+     }
 
-/*# sourceMappingURL=style.css.map */
+     /* Handle */
+     ::-webkit-scrollbar-thumb {
+         background: #888;
+     }
+
+     /* Handle on hover */
+     ::-webkit-scrollbar-thumb:hover {
+         background: #555;
+     }
+}
+
+@media screen and (min-width: 420px) and (min-height: 300px) {
+     .say-hello {
+          position: absolute;
+          right: 65%;
+          bottom: 60%;
+          font-size: 1.8em;
+     }
+
+     .short-bussines-card {
+          width: 40vw;
+          bottom: 25%;
+     }
+
+     .short-bussines-card-content {
+          width: 40vw;
+          position: absolute;
+          bottom: 5%;
+          right: 0;
+     }
+
+     .short-bussines-card-icons {
+          position: absolute;
+          width: 20vw;
+          right: 25%;
+          height: 5%;
+          bottom: 5%;
+     }
+
+     .techs {
+          height: 90vh;
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+     }
+
+     .techs > h2 {
+          top: 0;
+          padding-top: 20px;
+     }
+
+
+     .techs > .html, .css, .js, .rwd, .other  {
+          height: 65%;
+          width: 30%;
+          margin: 0;
+          padding-top: 7%;
+          color: var(--black);
+          margin-left: 10px;
+          margin-top: 10px;
+     }
+
+     .techs > .other {
+          margin-right: 10px;
+     }
+
+     .html-svg {
+          height: 30%;
+     }
+}
+
+@media screen and (min-width: 700px) {
+     .portfolio-item {
+          max-width: 80vw;
+          font-size: 1em;
+          margin-bottom: 7em;
+          height: 20%;
+          padding-top: 15%;
+          width: 80%;
+     }
+}
+
+
+@media screen and (min-width: 420px) and (min-height: 700px) {
+     .say-hello {
+          font-size: 3em;
+          top: 0;
+          left: 10vw;
+     }
+
+     .short-bussines-card {
+          width: 60vw;
+          height: 25vh;
+     }
+
+     .short-bussines-card-content {
+          width: 100%;
+     }
+
+     .techs {
+          width: 100%;
+          font-size: 1em;
+          height: 60%;;
+          padding-bottom: 10%;
+          padding-top: 10%;
+          margin: 0 auto;
+          background: var(--grey);
+          color: var(--black);
+          background-color: var(--grey2);
+          background-image: var(--gradient);
+          white-space: nowrap;
+          overflow: scroll;
+          -webkit-overflow-scrolling: touch;
+     }
+
+
+     .techs > .html, .css, .js, .rwd, .other {
+          background: var(--red);
+          background-image: var(--gradient);
+          position: relative;
+          display: inline-block;
+          margin: 5%;
+          padding-top: 20%;
+          width: 15em;
+          height: 15em;
+          text-align: center;
+          border-radius: 0.5em;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+          overflow: hidden;
+          -webkit-overflow-scrolling: touch;
+     }
+}
+
+@media screen and (min-width: 610px) and (min-height: 700px) {
+     .short-bussines-card {
+          width: 50vw;
+          bottom: 25%;
+     }
+
+     .short-bussines-card-content {
+          width: 60vw;
+          position: absolute;
+          bottom: 5%;
+          right: 0;
+     }
+
+     .git-icon, .contact-icon {
+          cursor: pointer;
+          z-index: 99;
+          margin-left: 25%;
+          margin-right: 10%;
+          transition: 0.1s;
+          color: var(--black);
+     }
+}
+
+@media screen and (min-width: 460px) and (min-height: 700px) {
+     .techs > .html, .css, .js, .rwd, .other {
+          background: var(--red);
+          background-image: var(--gradient);
+          position: relative;
+          display: inline-block;
+          margin: 5%;
+          padding-top: 10%;
+          width: 15em;
+          height: 15em;
+          text-align: center;
+          border-radius: 0.5em;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+          overflow: hidden;
+          -webkit-overflow-scrolling: touch;
+     }
+}
+
+@media screen and (min-width: 760px) and (min-height: 700px) {
+     .techs {
+          width: 100%;
+          font-size: 1em;
+          height: 60%;;
+          padding-bottom: 2%;
+          padding-top: 2%;
+          margin: 0 auto;
+          background: var(--grey);
+          color: var(--black);
+          background-color: var(--grey2);
+          background-image: var(--gradient);
+          white-space: nowrap;
+          overflow: scroll;
+          -webkit-overflow-scrolling: touch;
+     }
+}
+
+@media screen and (min-width: 890px) and (min-height: 700px) {
+     .techs > .html, .css, .js, .rwd, .other {
+          background: var(--red);
+          background-image: var(--gradient);
+          position: relative;
+          display: inline-block;
+          margin: 5%;
+          padding-top: 5%;
+          width: 15em;
+          height: 15em;
+          text-align: center;
+          border-radius: 0.5em;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+          overflow: hidden;
+          -webkit-overflow-scrolling: touch;
+     }
+}
+
+@media screen and (min-width: 1170px) and (min-height: 700px) {
+     .short-bussines-card {
+          width: 30vw;
+          bottom: 25%;
+     }
+
+     .short-bussines-card-content {
+          width: 30vw;
+          position: absolute;
+          bottom: 5%;
+          right: 0;
+     }
+
+     .git-icon, .contact-icon {
+          cursor: pointer;
+          z-index: 99;
+          margin-left: 25%;
+          margin-right: 10%;
+          transition: 0.1s;
+          color: var(--black);
+     }
+}
+
+@media screen and (min-width: 600px) and (min-height: 700px) {
+     footer {
+          height: 7%;
+          bottom: 0;
+     }
+
+     footer > p {
+          padding: 0;
+     }
+}
+
+@media screen and (min-width: 900px) and (min-height: 700px) {
+     footer {
+          height: 20vh;
+          bottom: 0;
+          margin: 0;
+          padding: 0;
+     }
+
+     .short-bussines-card {
+          width: 60vw;
+          height: 25vh;
+     }
+
+     .short-bussines-card-content {
+          width: 100%;
+          height: 20vh;
+          font-size: 1.6em;
+     }
+
+     .short-bussines-card-icons {
+          position: absolute;
+          top:100%;
+          left:50%;
+     }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 700px) {
+     .short-bussines-card {
+          width: 60vw;
+          height: 25vh;
+     }
+
+     .short-bussines-card-content {
+          width: 60%;
+          height: 20vh;
+          font-size: 1.5em;
+     }
+}
