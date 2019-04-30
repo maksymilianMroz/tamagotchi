@@ -1,0 +1,23 @@
+{
+  "name": "tamagotchi",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksymilianMroz/tamagotchi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksymilianMroz/tamagotchi/issues"
+  },
+  "homepage": "https://github.com/maksymilianMroz/tamagotchi#readme",
+  "devDependencies": {
+    "gulp": "^4.0.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
