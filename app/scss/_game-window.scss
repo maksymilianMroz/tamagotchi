@@ -12,7 +12,7 @@
     width: 150px;
     height: 100px;
     background: rgb(255, 255, 255);
-    margin: 20px;
+    margin: 13px;
     position: absolute;
     right: 0;
     top: 0;
@@ -22,6 +22,7 @@
     align-items: center;
     box-shadow: 0 2px 2px #ccc;
     font-size: 18px;
+    z-index: 90;
 
     .game-points,
     .game-time {
