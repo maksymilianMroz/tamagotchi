@@ -38,10 +38,12 @@
   .pet-container {
     height: 350px;
     width: 350px;
-    background: red;
+    background: #fff;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 2px #ccc;
 
     @import "pet";
   }
