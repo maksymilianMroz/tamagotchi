@@ -35,10 +35,15 @@
     }
   }
 
-  .pet {
+  .pet-container {
     height: 350px;
     width: 350px;
     background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @import "pet";
   }
 
   .game-btns {
