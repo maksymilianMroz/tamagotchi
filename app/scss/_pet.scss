@@ -89,6 +89,58 @@
       margin: 36px 10px 0;
     }
 
+    .pet__mustache {
+      width: 100%;
+      height: 41px;
+      position: absolute;
+      top: 46px;
+      display: flex;
+
+      .pet__mustache--left {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 1px;
+        left: 15px;
+
+        span {
+          display: block;
+          width: 60px;
+          height: 1px;
+          background: #000;
+          border-radius: 0 50% 50% 0;
+          margin: 10px 0;
+
+          &:nth-child(2) {
+            width: 40px;
+            margin-left: 20px;
+          }
+        }
+      }
+
+      .pet__mustache--right {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 1px;
+        right: -29px;
+
+        span {
+          display: block;
+          width: 60px;
+          height: 1px;
+          background: #000;
+          border-radius: 0 50% 50% 0;
+          margin: 10px 0;
+
+          &:nth-child(2) {
+            width: 40px;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+
     .pet__mouth {
       width: 30px;
       height: 28px;
