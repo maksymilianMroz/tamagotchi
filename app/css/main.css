@@ -252,7 +252,8 @@
 
 @keyframes point-added {
   0% {
-    top: 0;
+    position: relative;
+    top: -100%;
     opacity: 0;
     font-size: 27px; }
   50% {
@@ -262,7 +263,8 @@
   100% {
     top: 85%;
     opacity: .1;
-    font-size: 27px; } }
+    font-size: 27px;
+    opacity: 0; } }
     .main-section .game .game-panel {
       width: 100%;
       height: 30%;
@@ -279,7 +281,8 @@
           padding: 5px;
           background: #fff;
           box-shadow: 0 2px 2px #a3a3a3;
-          position: relative; }
+          position: relative;
+          overflow: hidden; }
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command {
             position: relative;
             top: 0;
@@ -289,7 +292,7 @@
             z-index: 1; }
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .points-animate {
             position: absolute;
-            top: 20px;
+            top: -20%;
             color: #51ff1c;
             left: 0;
             padding-top: 4%;
@@ -301,6 +304,6 @@
             text-shadow: 0 2px 2px #222222;
             animation-name: point-added;
             animation-duration: 1.2s;
-            animation-iteration-count: infinite; }
+            animation-iteration-count: 1; }
   .main-section .info {
     color: black; }
