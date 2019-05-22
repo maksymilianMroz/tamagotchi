@@ -1,206 +1,83 @@
-let timeToGo = document.querySelector('.game-time--content');
-let startBtn = document.querySelector('.startBtn');
-let pointsContainer = document.querySelector('.game-points__content');
+/******************************************** VARIABLES ********************************************/
+let timeContainer = document.querySelector('.game-time--content');
+let scoreContainer = document.querySelector('.game-points__content');
+
 let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
+/* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
+let randomNumber = Math.floor(Math.random() * 100 + 1);
+let secondsToAction = randomNumber * 20;
+console.log(secondsToAction);
 
-let losowaLiczba = Math.floor(Math.random() * 100 + 1)
+
+/***************** FIRST VERSION OF START BUTTON - MAYBE I LEAVE IT IN GAME ******************/
+let startBtn = document.querySelector('.startBtn');
 
 
+/******************************************** MY FUNCTIONS ********************************************/
 
 let addPoint = () => {
-    pointsContainer.innerHTML++;
-    return pointsContainer;
-
+    /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
+    console.log('DODANE');
 }
 
-let pointsLost = () => {
-    pointsContainer.innerHTML--;
-    return pointsContainer;
+let removePoint = () => {
+    /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
+    console.log('ODJĘTE');
 }
 
+let hungry = () => {
+    /* FUNCTION WHICH WILL ADD POINTS IF BTNS CLICKED ON RIGHT TIME */
+    console.log('głodny!')
+}
 
 let timer = () => {
-    pointsContainer.innerHTML = 0
-    console.log(losowaLiczba);
 
-    let timeleft = 55;
-    if (timeleft >= 0) {
+    /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
+    scoreContainer.innerHTML = 0
 
-        if (losowaLiczba > 80) {
-            console.log('nakarm');
-            feedBtn.style.background = "red";
-            nakarm();
-        } else if (losowaLiczba <= 80 && losowaLiczba > 20) {
-            console.log('posprzataj');
-            cleanBtn.style.background = "red";
-            posprzataj();
-        } else if (losowaLiczba <= 20) {
-            console.log('graj')
-            playBtn.style.background = "red";
-            graj();
-        }
+    /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
+    let timeLeft = 5;
+    
+        let gameStuff = setInterval(() => {
+            /****************** FUNCTION WHICH START TIMER - BODY FOR ALL THE PROCESS OF GAME ******************/
+            randomNumber = Math.floor(Math.random() * 100 + 1);
+            console.log(randomNumber);
 
-    }  
-
-    let nakarm = () => {
-
-
-        if (losowaLiczba > 80) {
-            feedBtn.style.background = "red";
-        } else {
-            feedBtn.style.background = "white";
-        }
-
-        if (feedBtn.style.background == "red") {
-            feedBtn.addEventListener('click', function () {
-                feedBtn.style.background = "white";
-                addPoint();
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-                console.log(losowaLiczba);
-                nakarm();
-            })
-        } else if (feedBtn.style.background == "white") {
-            feedBtn.addEventListener('click', function () {
-                pointsLost();
-                console.log('stracone');
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-            })
-        }
-        return losowaLiczba;
-    }
-
-    let posprzataj = () => {
+            if (randomNumber > 40) {
+                hungry();
+            } 
+            if (timeLeft < 0) {
+                clearInterval(gameStuff);
+                timeContainer.innerHTML = "GAME OVER";
+            } 
+            
+            return timeLeft;
+        }, secondsToAction);
+    
+        
 
 
-        if (losowaLiczba <= 80 && losowaLiczba > 20) {
-            cleanBtn.style.background = "red";
-        } else {
-            cleanBtn.style.background = "white";
-        }
+    /* AFTER CLICK START BUTTON SET A TEXT IN TIME CONTAINER TO "READY? GO!" FOR ONE SECOND UNTIL SETTIMER STARTS */
+    timeContainer.innerHTML = "READY? GO!"
 
-        if (cleanBtn.style.background == "red") {
-            cleanBtn.addEventListener('click', function () {
-                cleanBtn.style.background = "white";
-                addPoint();
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-                console.log(losowaLiczba);
-                nakarm();
-            })
-        } else if (cleanBtn.style.background == "white") {
-            cleanBtn.addEventListener('click', function () {
-                pointsLost();
-                console.log('stracone');
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-            })
-        }
-        return losowaLiczba;
-    }
+    /* SET A TIME */
+    let setTimer = setInterval(() => {
 
-    let graj = () => {
+        /* SET A TIMERCONTAINER TO THOSE 55 SECONDS WHICH WE DECLARED BEFORE IN TIMELEFT VARIABLE */
+        timeContainer.innerHTML = timeLeft;
 
-
-        if (losowaLiczba <= 20) {
-            playBtn.style.background = "red";
-        } else {
-            playBtn.style.background = "white";
-        }
-
-        if (playBtn.style.background == "red") {
-            playBtn.addEventListener('click', function () {
-                playBtn.style.background = "white";
-                addPoint();
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-                console.log(losowaLiczba);
-                nakarm();
-            })
-        } else if (playBtn.style.background == "white") {
-            playBtn.addEventListener('click', function () {
-                pointsLost();
-                console.log('stracone');
-                losowaLiczba = Math.floor(Math.random() * 100 + 1)
-            })
-        }
-        return losowaLiczba;
-    }
-
-  
-
-    let downloadTimer = setInterval(function () {
-        timeToGo.innerHTML = timeleft;
-
-        timeleft -= 1;
-        if (timeleft < 0) {
-            clearInterval(downloadTimer);
-            timeToGo.innerHTML = "Finished"
-        }
-
+        /* SUBTRACT ONE FROM TIME LEFT EVERY SECOND */
+        timeLeft-=1;
+        if (timeLeft < 0) {
+            clearInterval(setTimer);
+            timeContainer.innerHTML = timeLeft;
+        } 
+        return timeLeft;
     }, 1000);
 }
-// timer();
 
-let timeleft = 55;
-    if (timeleft >= 0) {
-
-        if (losowaLiczba > 80) {
-            console.log('nakarm');
-            feedBtn.style.background = "red";
-            nakarm();
-        } else if (losowaLiczba <= 80 && losowaLiczba > 20) {
-            console.log('posprzataj');
-            cleanBtn.style.background = "red";
-            posprzataj();
-        } else if (losowaLiczba <= 20) {
-            console.log('graj')
-            playBtn.style.background = "red";
-            graj();
-        }
-
-    }  
-
+/* STARTING GAME WITH START BUTTON */
 startBtn.addEventListener('click', timer)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let startTimer = (duration, display) => {
-
-//     let timer = duration, minutes, seconds;
-
-//     setInterval(function () {
-//         minutes = parseInt(timer / 60, 10);
-//         seconds = parseInt(timer % 60, 10);
-
-//         minutes = minutes < 10 ? "0" + minutes : minutes;
-//         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-//         display.textContent = minutes + ":" + seconds;
-
-//         if (--timer < 0) {
-//             timer = duration;
-//         }  
-//     }, 1000);
-// }
-
-// startTimer(60, timeToGo);
-// window.onload = function () {
-//     let oneMinute = 10;
-//     let display = document.querySelector('.game-time--content');
-
-//     startTimer(oneMinute, display);
-// }
