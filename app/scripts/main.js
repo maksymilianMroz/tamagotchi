@@ -6,6 +6,10 @@ let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
+let hungry = false;
+let dirty = false;
+let bored = false;
+
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
 let secondsToAction = randomNumber * 20;
@@ -18,45 +22,18 @@ let startBtn = document.querySelector('.startBtn');
 
 /******************************************** MY FUNCTIONS ********************************************/
 
+/* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
 let addPoint = () => {
     scoreContainer.innerHTML += 1;
     console.log('DODANE');
 }
 
+/* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
 let removePoint = () => {
     scoreContainer.innerHTML -= 1;
-    /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
     console.log('ODJĘTE');
 }
 
-if (feedBtn.style.background === "white") {
-    feedBtn.addEventListener('click', function() {
-        removePoint();
-        feedBtn.style.background = "white";
-    });
-}
-
-let hungry = () => {
-    /* FUNCTION WHICH WILL ADD POINTS IF BTNS CLICKED ON RIGHT TIME */
-    console.log('głodny!')
-
-    feedBtn.style.background = "red";
-
-    let hungryTime = 2;
-
-    hungryTime -= 1;
-    if (hungryTime <= 0) {
-        clearInterval(setTimer);
-        console.log('po jedzonku');
-    } else if (hungryTime > 0) {
-        feedBtn.addEventListener('click', function () {
-            addPoint();
-            feedBtn.style.background = "white";
-        });
-    }
-}
-
-   
 
 
 
@@ -64,10 +41,10 @@ let hungry = () => {
 let timer = () => {
 
     /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
-    scoreContainer.innerHTML = 0
+    scoreContainer.innerHTML = 0;
 
     /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
-    let timeLeft = 5;
+    let timeLeft = 55;
 
     let gameStuff = setInterval(() => {
         /****************** FUNCTION WHICH START TIMER - BODY FOR ALL THE PROCESS OF GAME ******************/
@@ -78,11 +55,38 @@ let timer = () => {
         if (timeLeft < 0) {
             clearInterval(gameStuff);
             timeContainer.innerHTML = "GAME OVER";
-        } else if (randomNumber > 40) {
-            /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 40 CALL FOR HUNGRY FUNCTION */
-            hungry();
+        } else if (randomNumber > 70) {
+            /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY FUNCTION */
+            hungry = true;
+            dirty = false;
+            bored = false;
+            if (hungry === true) {
+                console.log('JEŚĆ');
+                feedBtn.style.background = "red";
+                cleanBtn.style.background = "white";
+                playBtn.style.background = "white";
+            }
+        } else if (randomNumber <= 70 && randomNumber > 33) {
+            hungry = false;
+            dirty = true;
+            bored = false;
+            if (dirty === true) {
+                console.log('BRUDNO');
+                feedBtn.style.background = "white";
+                cleanBtn.style.background = "red";
+                playBtn.style.background = "white";
+            }
+        } else if (randomNumber <= 33) {
+            hungry = false;
+            dirty = false;
+            bored = true;
+            if (bored === true) {
+                console.log('NUDNO');
+                feedBtn.style.background = "white";
+                cleanBtn.style.background = "white";
+                playBtn.style.background = "red";
+            }
         }
-
         return timeLeft;
     }, secondsToAction);
 
