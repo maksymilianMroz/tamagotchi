@@ -6,13 +6,11 @@ let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
-let hungry = false;
-let dirty = false;
-let bored = false;
+
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
-let secondsToAction = randomNumber * 20;
+let secondsToAction = randomNumber * 50;
 console.log(secondsToAction);
 
 
@@ -35,10 +33,26 @@ let removePoint = () => {
 }
 
 
-
-
-
 let timer = () => {
+
+    let hungry = false;
+    if (hungry === false) {
+        feedBtn.onclick = function () {
+            console.log('odjęte');
+        }
+    }
+    let dirty = false;
+    if (dirty === false) {
+        cleanBtn.onclick = function () {
+            console.log('odjęte');
+        }
+    }
+    let bored = false;
+    if (bored === false) {
+        playBtn.onclick = function () {
+            console.log('odjęte');
+        }
+    }
 
     /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
     scoreContainer.innerHTML = 0;
@@ -48,8 +62,12 @@ let timer = () => {
 
     let gameStuff = setInterval(() => {
         /****************** FUNCTION WHICH START TIMER - BODY FOR ALL THE PROCESS OF GAME ******************/
+
         randomNumber = Math.floor(Math.random() * 100 + 1);
         console.log(randomNumber);
+
+        
+
 
         /* IF THERE IS 0> TIME LEFT GAME IS OVER */
         if (timeLeft < 0) {
@@ -57,6 +75,15 @@ let timer = () => {
             timeContainer.innerHTML = "GAME OVER";
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY FUNCTION */
+
+            if (hungry === true) {
+                hungry = false;
+            } else if (dirty === true) {
+                dirty = false;
+            } else if (bored === true) {
+                bored = false;
+            }
+
             hungry = true;
             dirty = false;
             bored = false;
@@ -65,6 +92,18 @@ let timer = () => {
                 feedBtn.style.background = "red";
                 cleanBtn.style.background = "white";
                 playBtn.style.background = "white";
+
+                feedBtn.onclick = function () {
+                    console.log('dodane');
+                    hungry = false;
+                    feedBtn.style.background = "white";
+
+                    if (hungry === false) {
+                        feedBtn.onclick = function () {
+                            console.log('odjęte');
+                        }
+                    }
+                }
             }
         } else if (randomNumber <= 70 && randomNumber > 33) {
             hungry = false;
@@ -75,6 +114,18 @@ let timer = () => {
                 feedBtn.style.background = "white";
                 cleanBtn.style.background = "red";
                 playBtn.style.background = "white";
+
+                cleanBtn.onclick = function () {
+                    console.log('dodane');
+                    dirty = false;
+                    cleanBtn.style.background = "white";
+
+                    if (dirty === false) {
+                        cleanBtn.onclick = function () {
+                            console.log('odjęte');
+                        }
+                    }
+                }
             }
         } else if (randomNumber <= 33) {
             hungry = false;
@@ -85,6 +136,18 @@ let timer = () => {
                 feedBtn.style.background = "white";
                 cleanBtn.style.background = "white";
                 playBtn.style.background = "red";
+
+                playBtn.onclick = function () {
+                    console.log('dodane');
+                    bored = false;
+                    playBtn.style.background = "white";
+
+                    if (bored === false) {
+                        playBtn.onclick = function () {
+                            console.log('odjęte');
+                        }
+                    }
+                }
             }
         }
         return timeLeft;
