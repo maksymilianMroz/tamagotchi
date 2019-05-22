@@ -31,9 +31,10 @@ let removePoint = () => {
     console.log('ODJĘTE');
 }
 
-/****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESS OF GAME ******************/
+/****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
 let timer = () => {
 
+    /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS */
     let hungry = false;
     if (hungry === false) {
         feedBtn.onclick = function () {
@@ -60,8 +61,10 @@ let timer = () => {
     /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
     let timeLeft = 55;
 
+    /* LOGIC WHICH STANDS BEFORE THE GAME */
     let gameStuff = setInterval(() => {
 
+        /* RESET STATES OF ALL NEEDS AFTER CHANGE RANDOM NUMBER - IT'S IN SETINTERVAL SO WILL BE DOING THIS AGAIN, AND AGAIN, ETC. */
         if (hungry === true) {
             hungry = false;
             feedBtn.onclick = function () {
@@ -75,6 +78,7 @@ let timer = () => {
                 removePoint();
             }
         }
+
         if (bored === false) {
             bored = false;
             playBtn.onclick = function () {
@@ -82,23 +86,17 @@ let timer = () => {
             }
         }
 
+        /* CHANGE THE RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
         randomNumber = Math.floor(Math.random() * 100 + 1);
         console.log(randomNumber);
 
-        // if (hungry === true) {
-        //     hungry = false;
-        // } else if (dirty === true) {
-        //     dirty = false;
-        // } else if (bored === true) {
-        //     bored = false;
-        // }
 
         /* IF THERE IS 0> TIME LEFT GAME IS OVER */
         if (timeLeft < 0) {
             clearInterval(gameStuff);
             timeContainer.innerHTML = "GAME OVER";
         } else if (randomNumber > 70) {
-            /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY FUNCTION */
+            /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
 
             hungry = true;
             dirty = false;
@@ -122,6 +120,7 @@ let timer = () => {
                 }
             }
         } else if (randomNumber <= 70 && randomNumber > 33) {
+            /* IF THE RANDOM NUMBER IS EQUAL OR MORE THAN 70 AND NUMBER IS HIGHER THAN 33 - CALL FOR DIRTY STATE ACTIONS */
             hungry = false;
             dirty = true;
             bored = false;
@@ -144,6 +143,7 @@ let timer = () => {
                 }
             }
         } else if (randomNumber <= 33) {
+            /* IF THE RANDOM NUMBER IS EQUAL OR LESS THAN 33 CALL FOR BORED STATE ACTIONS */
             hungry = false;
             dirty = false;
             bored = true;
