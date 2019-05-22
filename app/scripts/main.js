@@ -7,7 +7,6 @@ let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
 
-
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
 let secondsToAction = randomNumber * 50;
@@ -22,37 +21,38 @@ let startBtn = document.querySelector('.startBtn');
 
 /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
 let addPoint = () => {
-    scoreContainer.innerHTML += 1;
+    // scoreContainer.innerHTML += 1;
     console.log('DODANE');
 }
 
 /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
 let removePoint = () => {
-    scoreContainer.innerHTML -= 1;
+    // scoreContainer.innerHTML -= 1;
     console.log('ODJĘTE');
 }
 
-
+/****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESS OF GAME ******************/
 let timer = () => {
 
     let hungry = false;
     if (hungry === false) {
         feedBtn.onclick = function () {
-            console.log('odjęte');
+            removePoint();
         }
     }
     let dirty = false;
     if (dirty === false) {
         cleanBtn.onclick = function () {
-            console.log('odjęte');
+            removePoint();
         }
     }
     let bored = false;
     if (bored === false) {
         playBtn.onclick = function () {
-            console.log('odjęte');
+            removePoint();
         }
     }
+
 
     /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
     scoreContainer.innerHTML = 0;
@@ -61,13 +61,37 @@ let timer = () => {
     let timeLeft = 55;
 
     let gameStuff = setInterval(() => {
-        /****************** FUNCTION WHICH START TIMER - BODY FOR ALL THE PROCESS OF GAME ******************/
+
+        if (hungry === true) {
+            hungry = false;
+            feedBtn.onclick = function () {
+                removePoint();
+            }
+        }
+
+        if (dirty === true) {
+            dirty = false;
+            cleanBtn.onclick = function () {
+                removePoint();
+            }
+        }
+        if (bored === false) {
+            bored = false;
+            playBtn.onclick = function () {
+                removePoint();
+            }
+        }
 
         randomNumber = Math.floor(Math.random() * 100 + 1);
         console.log(randomNumber);
 
-        
-
+        // if (hungry === true) {
+        //     hungry = false;
+        // } else if (dirty === true) {
+        //     dirty = false;
+        // } else if (bored === true) {
+        //     bored = false;
+        // }
 
         /* IF THERE IS 0> TIME LEFT GAME IS OVER */
         if (timeLeft < 0) {
@@ -75,14 +99,6 @@ let timer = () => {
             timeContainer.innerHTML = "GAME OVER";
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY FUNCTION */
-
-            if (hungry === true) {
-                hungry = false;
-            } else if (dirty === true) {
-                dirty = false;
-            } else if (bored === true) {
-                bored = false;
-            }
 
             hungry = true;
             dirty = false;
@@ -94,13 +110,13 @@ let timer = () => {
                 playBtn.style.background = "white";
 
                 feedBtn.onclick = function () {
-                    console.log('dodane');
+                    addPoint();
                     hungry = false;
                     feedBtn.style.background = "white";
 
                     if (hungry === false) {
                         feedBtn.onclick = function () {
-                            console.log('odjęte');
+                            removePoint();
                         }
                     }
                 }
@@ -116,13 +132,13 @@ let timer = () => {
                 playBtn.style.background = "white";
 
                 cleanBtn.onclick = function () {
-                    console.log('dodane');
+                    addPoint();
                     dirty = false;
                     cleanBtn.style.background = "white";
 
                     if (dirty === false) {
                         cleanBtn.onclick = function () {
-                            console.log('odjęte');
+                            removePoint();
                         }
                     }
                 }
@@ -138,13 +154,13 @@ let timer = () => {
                 playBtn.style.background = "red";
 
                 playBtn.onclick = function () {
-                    console.log('dodane');
+                    addPoint();
                     bored = false;
                     playBtn.style.background = "white";
 
                     if (bored === false) {
                         playBtn.onclick = function () {
-                            console.log('odjęte');
+                            removePoint();
                         }
                     }
                 }
