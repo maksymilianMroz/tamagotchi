@@ -15,7 +15,6 @@
         opacity: .1;
         font-size: 27px;
         opacity: 0;
-        display: none;
     }
 }
 
@@ -51,11 +50,32 @@
 
         .points-animate {
             position: absolute;
+            display: inline-block;
             top: -20%;
             color: rgb(81, 255, 28);
             left: 0;
             padding-top: 4%;
             font-size: 27px;
+            z-index: 0;
+            text-align: center;
+            background: transparent;
+            width: 100%;
+            height: auto;
+            text-shadow: 0 2px 2px rgb(34, 34, 34);
+            animation-name: point-added;
+            animation-duration: 1.2s;
+            animation-iteration-count: 1;
+        }
+
+        .removing-points-animate {
+            position: absolute;
+            display: inline-block;
+            top: -20%;
+            color: rgb(255, 28, 28);
+            left: 0;
+            padding-top: 4%;
+            font-size: 27px;
+            background: transparent;
             z-index: 0;
             text-align: center;
             width: 100%;

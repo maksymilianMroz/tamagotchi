@@ -6,10 +6,17 @@ let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
+/* CREATE DIV WITH +1 CONTENT FOR ANIMATION OF ACHIVING A POINT */
 let pointAddAnimation = document.createElement('div');
 let pointAddAnimationTekst = document.createTextNode('+1');
 let pointAddAnimationClassAtr = document.createAttribute('class');
 pointAddAnimationClassAtr.value = 'points-animate';
+
+/* CREATE DIV WITH -1 CONTENT FOR ANIMATION OF LOSSING A POINT */
+let pointLoseAnimation = document.createElement('div');
+let pointLoseAnimationTekst = document.createTextNode('-1');
+let pointLoseAnimationClassAtr = document.createAttribute('class');
+pointLoseAnimationClassAtr.value = 'removing-points-animate';
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
@@ -37,6 +44,9 @@ let addPoint = () => {
 let removePoint = () => {
     // scoreContainer.innerHTML -= 1;
     console.log('ODJĘTE');
+
+    pointLoseAnimation.appendChild(pointLoseAnimationTekst);
+    pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 }
 
 /****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
@@ -44,38 +54,53 @@ let timer = () => {
 
     /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS */
     let hungry = false;
+    let dirty = false;
+    let bored = false;
+
+
     if (hungry === false) {
         feedBtn.onclick = function () {
+            let feedGrasp = document.querySelector('.game-panel__column--feed');
+            feedGrasp.appendChild(pointLoseAnimation);
             removePoint();
         }
     }
-    let dirty = false;
+
     if (dirty === false) {
         cleanBtn.onclick = function () {
+            let cleanGrasp = document.querySelector('.game-panel__column--clean');
+            cleanGrasp.appendChild(pointLoseAnimation);
             removePoint();
         }
     }
-    let bored = false;
+
     if (bored === false) {
         playBtn.onclick = function () {
+            let playGrasp = document.querySelector('.game-panel__column--play');
+            playGrasp.appendChild(pointLoseAnimation);
             removePoint();
         }
     }
+
 
 
     /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
     scoreContainer.innerHTML = 0;
 
     /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
-    let timeLeft = 55;
+    let timeLeft = 5;
 
     /* LOGIC WHICH STANDS BEFORE THE GAME */
     let gameStuff = setInterval(() => {
+
+        // gameStartState();
 
         /* RESET STATES OF ALL NEEDS AFTER CHANGE RANDOM NUMBER - IT'S IN SETINTERVAL SO WILL BE DOING THIS AGAIN, AND AGAIN, ETC. */
         if (hungry === true) {
             hungry = false;
             feedBtn.onclick = function () {
+                let feedGrasp = document.querySelector('.game-panel__column--feed');
+                feedGrasp.appendChild(pointLoseAnimation);
                 removePoint();
             }
         }
@@ -83,13 +108,17 @@ let timer = () => {
         if (dirty === true) {
             dirty = false;
             cleanBtn.onclick = function () {
+                let cleanGrasp = document.querySelector('.game-panel__column--clean');
+                cleanGrasp.appendChild(pointLoseAnimation);
                 removePoint();
             }
         }
 
-        if (bored === false) {
+        if (bored === true) {
             bored = false;
             playBtn.onclick = function () {
+                let playGrasp = document.querySelector('.game-panel__column--play');
+                playGrasp.appendChild(pointLoseAnimation);
                 removePoint();
             }
         }
@@ -105,7 +134,6 @@ let timer = () => {
             timeContainer.innerHTML = "GAME OVER";
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
-
             hungry = true;
             dirty = false;
             bored = false;
@@ -124,6 +152,8 @@ let timer = () => {
 
                     if (hungry === false) {
                         feedBtn.onclick = function () {
+                            let feedGrasp = document.querySelector('.game-panel__column--feed');
+                            feedGrasp.appendChild(pointLoseAnimation);
                             removePoint();
                         }
                     }
@@ -149,6 +179,8 @@ let timer = () => {
 
                     if (dirty === false) {
                         cleanBtn.onclick = function () {
+                            let cleanGrasp = document.querySelector('.game-panel__column--clean');
+                            cleanGrasp.appendChild(pointLoseAnimation);
                             removePoint();
                         }
                     }
@@ -174,6 +206,8 @@ let timer = () => {
 
                     if (bored === false) {
                         playBtn.onclick = function () {
+                            let playGrasp = document.querySelector('.game-panel__column--play');
+                            playGrasp.appendChild(pointLoseAnimation);
                             removePoint();
                         }
                     }
@@ -199,9 +233,9 @@ let timer = () => {
         timeLeft -= 1;
         if (timeLeft < 0) {
             clearInterval(setTimer);
-            timeContainer.innerHTML = timeLeft;
+            timeContainer.innerHTML = timeLeft + 1;
         }
-        return timeLeft;
+        return timeLeft + 1;
     }, 1000);
 }
 

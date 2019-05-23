@@ -264,8 +264,7 @@
     top: 85%;
     opacity: .1;
     font-size: 27px;
-    opacity: 0;
-    display: none; } }
+    opacity: 0; } }
     .main-section .game .game-panel {
       width: 100%;
       height: 30%;
@@ -293,11 +292,30 @@
             z-index: 1; }
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .points-animate {
             position: absolute;
+            display: inline-block;
             top: -20%;
             color: #51ff1c;
             left: 0;
             padding-top: 4%;
             font-size: 27px;
+            z-index: 0;
+            text-align: center;
+            background: transparent;
+            width: 100%;
+            height: auto;
+            text-shadow: 0 2px 2px #222222;
+            animation-name: point-added;
+            animation-duration: 1.2s;
+            animation-iteration-count: 1; }
+          .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .removing-points-animate {
+            position: absolute;
+            display: inline-block;
+            top: -20%;
+            color: #ff1c1c;
+            left: 0;
+            padding-top: 4%;
+            font-size: 27px;
+            background: transparent;
             z-index: 0;
             text-align: center;
             width: 100%;
