@@ -6,6 +6,9 @@ let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
+let addPointsCounter = 0;
+let subPointsCounter = 0;
+
 /* CREATE DIV WITH +1 CONTENT FOR ANIMATION OF ACHIVING A POINT */
 let pointAddAnimation = document.createElement('div');
 let pointAddAnimationTekst = document.createTextNode('+1');
@@ -21,9 +24,12 @@ pointLoseAnimationClassAtr.value = 'removing-points-animate';
 pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
-let randomNumber = 18;
+let randomNumber = 8;
 let secondsToAction = randomNumber * 50;
-console.log(secondsToAction);
+// console.log(secondsToAction);
+
+/* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
+let timeLeft = 55;
 
 
 /***************** FIRST VERSION OF START BUTTON - MAYBE I LEAVE IT IN GAME ******************/
@@ -35,7 +41,18 @@ let startBtn = document.querySelector('.startBtn');
 /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
 let addPoint = () => {
     scoreContainer.innerHTML++;
-    console.log('DODANE');
+    // console.log('DODANE');
+
+    /* AFTER YOU GAIN TEN POINTS (EVEN IF THE GAINING WAS INTERRUPTED BY THE LOSS OF A POINT) THERE WILL BE TWO SECONDS ADD TO YOUR TIMER */
+    let addTime = () => {
+        addPointsCounter++
+        if (addPointsCounter === 10) {
+            timeLeft = timeLeft + 2;
+            addPointsCounter = 0;
+            console.log('add time działa')
+        }
+    }
+    addTime();
 
     /* SAME THINK AS IN THE CONTAINER WITH REMOVE POINTS - MAY HAPPEN THAT YOU WILL ADD MORE THAN ONE POINT IN THE DIFFERENT COLUMNS, AND WE WANT TO CREATE TWO DIVS */
     pointAddAnimation = document.createElement('div');
@@ -50,7 +67,18 @@ let addPoint = () => {
 /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
 let removePoint = () => {
     scoreContainer.innerHTML--;
-    console.log('ODJĘTE');
+    // console.log('ODJĘTE');
+
+    /* AFTER YOU LOSS TEN POINTS (EVEN IF THE LOSSING WAS INTERRUPTED BY THE GAIN OF A POINT) THERE WILL BE EIGHT SECONDS SUBSTRACT FROM YOUR TIMER */
+    let subTime = () => {
+        subPointsCounter++
+        if (subPointsCounter === 4) {
+            timeLeft = timeLeft - 8;
+            subPointsCounter = 0;
+            console.log('sub time działa')
+        }
+    }
+    subTime();
 
     /* WE WANT TO GENERATE NEW DIV EACH TIME WE ARE CLICKING ON GAME BUTTON - TO REMOVE POINTS WITH NEW DIVS */
     pointLoseAnimation = document.createElement('div');
@@ -103,9 +131,6 @@ let timer = () => {
     /* SET A SCORE TO ZERO - POINT FROM WHERE WE START OUR GAME */
     scoreContainer.innerHTML = 0;
 
-    /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
-    let timeLeft = 55;
-
     /* LOGIC WHICH STANDS BEFORE THE GAME */
     let gameStuff = setInterval(() => {
 
@@ -141,7 +166,7 @@ let timer = () => {
 
         /* CHANGE THE RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
         randomNumber = Math.floor(Math.random() * 100 + 1);
-        console.log(randomNumber);
+        // console.log(randomNumber);
 
 
         /* IF THERE IS 0> TIME LEFT GAME IS OVER */
@@ -157,7 +182,7 @@ let timer = () => {
             dirty = false;
             bored = false;
             if (hungry === true) {
-                console.log('JEŚĆ');
+                // console.log('JEŚĆ');
                 feedBtn.style.background = "red";
                 cleanBtn.style.background = "white";
                 playBtn.style.background = "white";
@@ -184,7 +209,7 @@ let timer = () => {
             dirty = true;
             bored = false;
             if (dirty === true) {
-                console.log('BRUDNO');
+                // console.log('BRUDNO');
                 feedBtn.style.background = "white";
                 cleanBtn.style.background = "red";
                 playBtn.style.background = "white";
@@ -211,7 +236,7 @@ let timer = () => {
             dirty = false;
             bored = true;
             if (bored === true) {
-                console.log('NUDNO');
+                // console.log('NUDNO');
                 feedBtn.style.background = "white";
                 cleanBtn.style.background = "white";
                 playBtn.style.background = "red";
