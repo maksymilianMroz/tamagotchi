@@ -21,7 +21,7 @@ pointLoseAnimationClassAtr.value = 'removing-points-animate';
 pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
-let randomNumber = 70;
+let randomNumber = 18;
 let secondsToAction = randomNumber * 50;
 console.log(secondsToAction);
 
@@ -34,17 +34,22 @@ let startBtn = document.querySelector('.startBtn');
 
 /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
 let addPoint = () => {
-    // scoreContainer.innerHTML += 1;
-
+    scoreContainer.innerHTML++;
     console.log('DODANE');
 
+    /* SAME THINK AS IN THE CONTAINER WITH REMOVE POINTS - MAY HAPPEN THAT YOU WILL ADD MORE THAN ONE POINT IN THE DIFFERENT COLUMNS, AND WE WANT TO CREATE TWO DIVS */
+    pointAddAnimation = document.createElement('div');
+    pointAddAnimationTekst = document.createTextNode('+1');
+    pointAddAnimationClassAtr = document.createAttribute('class');
+    pointAddAnimationClassAtr.value = 'points-animate';
+    pointAddAnimation.setAttributeNode(pointAddAnimationClassAtr);
     pointAddAnimation.appendChild(pointAddAnimationTekst);
 
 }
 
 /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
 let removePoint = () => {
-    // scoreContainer.innerHTML -= 1;
+    scoreContainer.innerHTML--;
     console.log('ODJĘTE');
 
     /* WE WANT TO GENERATE NEW DIV EACH TIME WE ARE CLICKING ON GAME BUTTON - TO REMOVE POINTS WITH NEW DIVS */
@@ -59,6 +64,9 @@ let removePoint = () => {
 
 /****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
 let timer = () => {
+
+    /* STUFF WHICH WILL HAPPEN JUST AFTER CLICKING START THE GAME */
+
 
     /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS - EVEN IF THERE WAS NO CALL FOR EATING< CLEANING OR PLAYING */
     let hungry = false;
@@ -140,6 +148,9 @@ let timer = () => {
         if (timeLeft < 0) {
             clearInterval(gameStuff);
             timeContainer.innerHTML = "GAME OVER";
+
+            /* STUFF WHICH WILL HAPPEN AFTER GAME OVER */
+
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
             hungry = true;

@@ -273,6 +273,9 @@
         justify-content: space-around;
         padding: 1% 20%;
         height: 100%; }
+        @media (max-width: 580px) {
+          .main-section .game .game-panel .game-panel__points-animation_columns {
+            padding: 1% 0; } }
         .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column {
           height: 100%;
           border: 1px solid #999999;
