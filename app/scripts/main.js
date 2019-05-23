@@ -95,7 +95,9 @@ let removePoint = () => {
 
 /****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
 let timer = () => {
-
+    if (timeLeft < 0) {
+        timeLeft = 55;
+    }
     /* STUFF WHICH WILL HAPPEN JUST AFTER CLICKING START THE GAME */
 
 
