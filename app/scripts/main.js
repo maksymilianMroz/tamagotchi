@@ -24,7 +24,7 @@ pointLoseAnimationClassAtr.value = 'removing-points-animate';
 pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
-let randomNumber = 15;
+let randomNumber = 10;
 let secondsToAction = randomNumber * 50;
 // console.log(secondsToAction);
 
@@ -36,6 +36,7 @@ let timeLeft = 55;
 let startBtn = document.querySelector('.startBtn');
 
 
+
 /******************************************** MY FUNCTIONS ********************************************/
 
 /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
@@ -43,11 +44,12 @@ let addPoint = () => {
     scoreContainer.innerHTML++;
     // console.log('DODANE');
 
+    
     /* AFTER YOU GAIN TEN POINTS (EVEN IF THE GAINING WAS INTERRUPTED BY THE LOSS OF A POINT) THERE WILL BE TWO SECONDS ADD TO YOUR TIMER */
     let addTime = () => {
         addPointsCounter++
         if (addPointsCounter === 10) {
-            timeLeft = timeLeft + 2;
+            timeLeft = timeLeft + 5;
             addPointsCounter = 0;
             console.log('add time działa')
         }
@@ -69,6 +71,7 @@ let removePoint = () => {
     scoreContainer.innerHTML--;
     // console.log('ODJĘTE');
 
+    
     /* AFTER YOU LOSS TEN POINTS (EVEN IF THE LOSSING WAS INTERRUPTED BY THE GAIN OF A POINT) THERE WILL BE EIGHT SECONDS SUBSTRACT FROM YOUR TIMER */
     let subTime = () => {
         subPointsCounter++
