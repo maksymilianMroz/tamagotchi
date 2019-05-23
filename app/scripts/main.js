@@ -6,6 +6,10 @@ let feedBtn = document.querySelector('.game-btns__feed');
 let cleanBtn = document.querySelector('.game-btns__clean');
 let playBtn = document.querySelector('.game-btns__play');
 
+let pointAddAnimation = document.createElement('div');
+let pointAddAnimationTekst = document.createTextNode('+1');
+let pointAddAnimationClassAtr = document.createAttribute('class');
+pointAddAnimationClassAtr.value = 'points-animate';
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
@@ -22,7 +26,11 @@ let startBtn = document.querySelector('.startBtn');
 /* FUNCTION WHICH WILL ADD ONE POINT TO SCORE */
 let addPoint = () => {
     // scoreContainer.innerHTML += 1;
+
     console.log('DODANE');
+
+    pointAddAnimation.appendChild(pointAddAnimationTekst);
+    pointAddAnimation.setAttributeNode(pointAddAnimationClassAtr);
 }
 
 /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
@@ -108,6 +116,8 @@ let timer = () => {
                 playBtn.style.background = "white";
 
                 feedBtn.onclick = function () {
+                    let feedGrasp = document.querySelector('.game-panel__column--feed');
+                    feedGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     hungry = false;
                     feedBtn.style.background = "white";
@@ -131,6 +141,8 @@ let timer = () => {
                 playBtn.style.background = "white";
 
                 cleanBtn.onclick = function () {
+                    let cleanGrasp = document.querySelector('.game-panel__column--clean');
+                    cleanGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     dirty = false;
                     cleanBtn.style.background = "white";
@@ -154,6 +166,8 @@ let timer = () => {
                 playBtn.style.background = "red";
 
                 playBtn.onclick = function () {
+                    let playGrasp = document.querySelector('.game-panel__column--play');
+                    playGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     bored = false;
                     playBtn.style.background = "white";
