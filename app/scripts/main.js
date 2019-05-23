@@ -11,12 +11,14 @@ let pointAddAnimation = document.createElement('div');
 let pointAddAnimationTekst = document.createTextNode('+1');
 let pointAddAnimationClassAtr = document.createAttribute('class');
 pointAddAnimationClassAtr.value = 'points-animate';
+pointAddAnimation.setAttributeNode(pointAddAnimationClassAtr);
 
 /* CREATE DIV WITH -1 CONTENT FOR ANIMATION OF LOSSING A POINT */
 let pointLoseAnimation = document.createElement('div');
 let pointLoseAnimationTekst = document.createTextNode('-1');
 let pointLoseAnimationClassAtr = document.createAttribute('class');
 pointLoseAnimationClassAtr.value = 'removing-points-animate';
+pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
 let randomNumber = 70;
@@ -37,7 +39,7 @@ let addPoint = () => {
     console.log('DODANE');
 
     pointAddAnimation.appendChild(pointAddAnimationTekst);
-    pointAddAnimation.setAttributeNode(pointAddAnimationClassAtr);
+
 }
 
 /* FUNCTION WHICH WILL SUBTRACT ONE POINT FROM SCORE */
@@ -45,14 +47,20 @@ let removePoint = () => {
     // scoreContainer.innerHTML -= 1;
     console.log('ODJĘTE');
 
-    pointLoseAnimation.appendChild(pointLoseAnimationTekst);
+    /* WE WANT TO GENERATE NEW DIV EACH TIME WE ARE CLICKING ON GAME BUTTON - TO REMOVE POINTS WITH NEW DIVS */
+    pointLoseAnimation = document.createElement('div');
+    pointLoseAnimationTekst = document.createTextNode('-1');
+    pointLoseAnimationClassAtr = document.createAttribute('class');
+    pointLoseAnimationClassAtr.value = 'removing-points-animate';
     pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
+    pointLoseAnimation.appendChild(pointLoseAnimationTekst);
+
 }
 
 /****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
 let timer = () => {
 
-    /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS */
+    /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS - EVEN IF THERE WAS NO CALL FOR EATING< CLEANING OR PLAYING */
     let hungry = false;
     let dirty = false;
     let bored = false;
@@ -88,7 +96,7 @@ let timer = () => {
     scoreContainer.innerHTML = 0;
 
     /* SET TIMER FOR 55 SECONDS - OUR BASE GAME TIME */
-    let timeLeft = 5;
+    let timeLeft = 55;
 
     /* LOGIC WHICH STANDS BEFORE THE GAME */
     let gameStuff = setInterval(() => {
@@ -235,7 +243,7 @@ let timer = () => {
             clearInterval(setTimer);
             timeContainer.innerHTML = timeLeft + 1;
         }
-        return timeLeft + 1;
+        return timeLeft;
     }, 1000);
 }
 
