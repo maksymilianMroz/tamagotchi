@@ -24,7 +24,7 @@ pointLoseAnimationClassAtr.value = 'removing-points-animate';
 pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
-let randomNumber = 12;
+let randomNumber = 15;
 let secondsToAction = randomNumber * 50;
 // console.log(secondsToAction);
 
