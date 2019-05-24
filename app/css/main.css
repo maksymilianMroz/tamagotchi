@@ -52,6 +52,10 @@ body {
     background: #dfdfdf;
     width: 500px;
     margin: 0 auto; }
+    @media (max-width: 580px) {
+      .main-section .game {
+        background: white;
+        width: auto; } }
     .main-section .game .game-window {
       height: 70%;
       background: #e6e6e6;
@@ -368,7 +372,7 @@ body {
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-feed-effect, .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-clean-effect, .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-play-effect {
             box-shadow: 4px 2px 2px #cccccc;
             background-color: #fff;
-            box-shadow: 0 0 60px 30px black, 0 0 80px 40px #ff790c, 0 0 140px 90px #f83b02; }
+            box-shadow: 0 0 60px 30px #d10e0e, 0 0 80px 40px #ff0c0c, 0 0 140px 90px #f8bf02; }
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .points-animate {
             position: absolute;
             display: flex;
