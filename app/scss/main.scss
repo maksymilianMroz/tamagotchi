@@ -8,6 +8,8 @@
 .main-section {
     width: 80%;
     margin: 0 auto;
+
+    @import "game-nav";
     
     .game {
         height: 100vh;

@@ -32,8 +32,9 @@ let secondsToAction = randomNumber * 50;
 let timeLeft = 55;
 
 
-/***************** FIRST VERSION OF START BUTTON - MAYBE I LEAVE IT IN GAME ******************/
+/***************** START BUTTON AND NAVIGATION CONTAINER VARIABLES ******************/
 let startBtn = document.querySelector('.startBtn');
+let gameNav = document.querySelector('.game-navigation');
 
 
 
@@ -47,7 +48,7 @@ let addPoint = () => {
     
     /* AFTER YOU GAIN TEN POINTS (EVEN IF THE GAINING WAS INTERRUPTED BY THE LOSS OF A POINT) THERE WILL BE TWO SECONDS ADD TO YOUR TIMER */
     let addTime = () => {
-        addPointsCounter++
+        addPointsCounter++;
         if (addPointsCounter === 10) {
             timeLeft = timeLeft + 5;
             addPointsCounter = 0;
@@ -99,6 +100,7 @@ let timer = () => {
         timeLeft = 55;
     }
     /* STUFF WHICH WILL HAPPEN JUST AFTER CLICKING START THE GAME */
+    gameNav.classList.add("hide-nav");
 
 
     /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS - EVEN IF THERE WAS NO CALL FOR EATING< CLEANING OR PLAYING */
@@ -180,6 +182,7 @@ let timer = () => {
             timeContainer.innerHTML = "GAME OVER";
 
             /* STUFF WHICH WILL HAPPEN AFTER GAME OVER */
+            gameNav.classList.remove("hide-nav");
 
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
