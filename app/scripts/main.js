@@ -204,6 +204,20 @@ let timer = () => {
             bestScore.innerHTML = yourTopScores[0];
             console.log(yourTopScores);
 
+            /* FUNCTION DELETES ALL CREATED DIV - WITH POINTS - WHEN GAME IS DONE */
+            function deleteChild() { 
+                let containerForElementsToDelete = document.querySelectorAll(".delete-after-game"); 
+                console.log(containerForElementsToDelete);
+                
+                
+                let child = containerForElementsToDelete.childNodes;  
+                while (child) { 
+                    containerForElementsToDelete.removeChild(child); 
+                    child = containerForElementsToDelete.childNodes; 
+                } 
+            } 
+            deleteChild();
+
 
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
