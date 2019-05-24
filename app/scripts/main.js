@@ -35,6 +35,13 @@ let timeLeft = 55;
 /***************** START BUTTON AND NAVIGATION CONTAINER VARIABLES ******************/
 let startBtn = document.querySelector('.startBtn');
 let gameNav = document.querySelector('.game-navigation');
+let yourLastScore = document.querySelector('.last-game-score');
+let bestScoreFirst = document.querySelector('.your-scores-top-three--first');
+let bestScoreSecond = document.querySelector('.your-scores-top-three--second');
+let bestScoreThird = document.querySelector('.your-scores-top-three--third');
+
+/* ARRAY IN WHICH WILL SAVE YOUR SCORES */
+let yourTopScores = [];
 
 
 
@@ -45,7 +52,7 @@ let addPoint = () => {
     scoreContainer.innerHTML++;
     // console.log('DODANE');
 
-    
+
     /* AFTER YOU GAIN TEN POINTS (EVEN IF THE GAINING WAS INTERRUPTED BY THE LOSS OF A POINT) THERE WILL BE TWO SECONDS ADD TO YOUR TIMER */
     let addTime = () => {
         addPointsCounter++;
@@ -72,7 +79,7 @@ let removePoint = () => {
     scoreContainer.innerHTML--;
     // console.log('ODJĘTE');
 
-    
+
     /* AFTER YOU LOSS TEN POINTS (EVEN IF THE LOSSING WAS INTERRUPTED BY THE GAIN OF A POINT) THERE WILL BE EIGHT SECONDS SUBSTRACT FROM YOUR TIMER */
     let subTime = () => {
         subPointsCounter++
@@ -183,6 +190,20 @@ let timer = () => {
 
             /* STUFF WHICH WILL HAPPEN AFTER GAME OVER */
             gameNav.classList.remove("hide-nav");
+            yourLastScore.innerHTML = scoreContainer.innerHTML;
+            yourTopScores.push(yourLastScore.innerHTML);
+            if (yourTopScores[1] === undefined) {
+                yourTopScores.push(0);
+            }
+            if (yourTopScores[2] === undefined) {
+                yourTopScores.push(0);
+            }
+            yourTopScores.sort();
+            bestScoreFirst.innerHTML = yourTopScores[0];
+            bestScoreSecond.innerHTML = yourTopScores[1];
+            bestScoreThird.innerHTML = yourTopScores[2];
+            console.log(yourTopScores);
+
 
         } else if (randomNumber > 70) {
             /* IF THE RANDOM NUMBER IS EQUAL TO MORE THAN 70 CALL FOR HUNGRY STATE ACTIONS */
