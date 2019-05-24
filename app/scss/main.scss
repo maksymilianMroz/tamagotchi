@@ -5,6 +5,10 @@
     font-family: 'Gugi', cursive;
 }
 
+body {
+    background: rgb(223, 223, 223);
+}
+
 .main-section {
     width: 80%;
     margin: 0 auto;
@@ -14,6 +18,8 @@
     .game {
         height: 100vh;
         background: rgb(223, 223, 223);
+        width: 500px;
+        margin: 0 auto;
 
         @import "game-window";
         @import "game-panel";

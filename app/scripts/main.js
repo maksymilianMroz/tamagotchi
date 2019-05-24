@@ -9,6 +9,15 @@ let playBtn = document.querySelector('.game-btns__play');
 let addPointsCounter = 0;
 let subPointsCounter = 0;
 
+/* VARIABLES FOR GAME ANIMATIONS */
+playImgAnimation = document.querySelector('.btn-container-img-play');
+feedImgAnimation = document.querySelector('.btn-container-img-feed');
+cleanImgAnimation = document.querySelector('.btn-container-img-clean');
+
+feedNowInfoBox = document.querySelector('.game-command-animate-feed');
+cleanNowInfoBox = document.querySelector('.game-command-animate-clean');
+playNowInfoBox = document.querySelector('.game-command-animate-play');
+
 /* CREATE DIV WITH +1 CONTENT FOR ANIMATION OF ACHIVING A POINT */
 let pointAddAnimation = document.createElement('div');
 let pointAddAnimationTekst = document.createTextNode('+1');
@@ -24,7 +33,7 @@ pointLoseAnimationClassAtr.value = 'removing-points-animate';
 pointLoseAnimation.setAttributeNode(pointLoseAnimationClassAtr);
 
 /* CREATING A RANDOM NUMBER FROM WHICH WE WILL MAKE OUR ACTIONS IN GAME */
-let randomNumber = 10;
+let randomNumber = 11;
 let secondsToAction = randomNumber * 50;
 // console.log(secondsToAction);
 
@@ -203,16 +212,22 @@ let timer = () => {
             bored = false;
             if (hungry === true) {
                 // console.log('JEŚĆ');
-                feedBtn.style.background = "red";
-                cleanBtn.style.background = "white";
-                playBtn.style.background = "white";
+
+                feedImgAnimation.classList.remove('btn-img-hide');
+                cleanImgAnimation.classList.add('btn-img-hide');
+                playImgAnimation.classList.add('btn-img-hide');
+
+                feedNowInfoBox.classList.add('game-command-animate-feed-effect');
+                cleanNowInfoBox.classList.remove('game-command-animate-clean-effect');
+                playNowInfoBox.classList.remove('game-command-animate-play-effect');
 
                 feedBtn.onclick = function () {
                     let feedGrasp = document.querySelector('.game-panel__column--feed');
                     feedGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     hungry = false;
-                    feedBtn.style.background = "white";
+                    feedImgAnimation.classList.add('btn-img-hide');
+                    feedNowInfoBox.classList.remove('game-command-animate-feed-effect');
 
                     if (hungry === false) {
                         feedBtn.onclick = function () {
@@ -230,16 +245,21 @@ let timer = () => {
             bored = false;
             if (dirty === true) {
                 // console.log('BRUDNO');
-                feedBtn.style.background = "white";
-                cleanBtn.style.background = "red";
-                playBtn.style.background = "white";
+                feedImgAnimation.classList.add('btn-img-hide');
+                cleanImgAnimation.classList.remove('btn-img-hide');
+                playImgAnimation.classList.add('btn-img-hide');
+
+                feedNowInfoBox.classList.remove('game-command-animate-feed-effect');
+                cleanNowInfoBox.classList.add('game-command-animate-clean-effect');
+                playNowInfoBox.classList.remove('game-command-animate-play-effect');
 
                 cleanBtn.onclick = function () {
                     let cleanGrasp = document.querySelector('.game-panel__column--clean');
                     cleanGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     dirty = false;
-                    cleanBtn.style.background = "white";
+                    cleanImgAnimation.classList.add('btn-img-hide');
+                    cleanNowInfoBox.classList.remove('game-command-animate-clean-effect');
 
                     if (dirty === false) {
                         cleanBtn.onclick = function () {
@@ -257,16 +277,21 @@ let timer = () => {
             bored = true;
             if (bored === true) {
                 // console.log('NUDNO');
-                feedBtn.style.background = "white";
-                cleanBtn.style.background = "white";
-                playBtn.style.background = "red";
+                feedImgAnimation.classList.add('btn-img-hide');
+                cleanImgAnimation.classList.add('btn-img-hide');
+                playImgAnimation.classList.remove('btn-img-hide');
+
+                feedNowInfoBox.classList.remove('game-command-animate-feed-effect');
+                cleanNowInfoBox.classList.remove('game-command-animate-clean-effect');
+                playNowInfoBox.classList.add('game-command-animate-play-effect');
 
                 playBtn.onclick = function () {
                     let playGrasp = document.querySelector('.game-panel__column--play');
                     playGrasp.appendChild(pointAddAnimation);
                     addPoint();
                     bored = false;
-                    playBtn.style.background = "white";
+                    playImgAnimation.classList.add('btn-img-hide');
+                    playNowInfoBox.classList.remove('game-command-animate-play-effect');
 
                     if (bored === false) {
                         playBtn.onclick = function () {
@@ -285,7 +310,7 @@ let timer = () => {
 
 
     /* AFTER CLICK START BUTTON SET A TEXT IN TIME CONTAINER TO "READY? GO!" FOR ONE SECOND UNTIL SETTIMER STARTS */
-    timeContainer.innerHTML = "READY? GO!"
+    // timeContainer.innerHTML = "READY? GO!"
 
     /* SET A TIME */
     let setTimer = setInterval(() => {

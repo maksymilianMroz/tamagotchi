@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: 'Gugi', cursive; }
 
+body {
+  background: #dfdfdf; }
+
 .main-section {
   width: 80%;
   margin: 0 auto; }
@@ -46,7 +49,9 @@
     display: none; }
   .main-section .game {
     height: 100vh;
-    background: #dfdfdf; }
+    background: #dfdfdf;
+    width: 500px;
+    margin: 0 auto; }
     .main-section .game .game-window {
       height: 70%;
       background: #e6e6e6;
@@ -286,6 +291,37 @@
           .main-section .game .game-window .game-btns .btn:hover {
             background: #e7e7e7;
             opacity: .9; }
+    .main-section .game .game-btn-container {
+      position: relative; }
+      .main-section .game .game-btn-container .btn-container-img {
+        position: absolute;
+        top: -32px;
+        right: -3px;
+        height: 40px;
+        width: auto;
+        animation-name: pulse;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        transition: all 1s ease; }
+      .main-section .game .game-btn-container .btn-img-hide {
+        display: none; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+    box-shadow: 1px 1px 1px transparent;
+    transform: rotate(0deg);
+    opacity: .8; }
+  50% {
+    transform: scale(1.1, 1.1);
+    box-shadow: 3px 3px 3px #535353;
+    transform: rotate(20deg);
+    opacity: 1; }
+  100% {
+    transform: scale(1, 1);
+    box-shadow: 1px 1px 1px transparent;
+    transform: rotate(0deg);
+    opacity: .8; } }
 
 @keyframes point-added {
   0% {
@@ -327,7 +363,12 @@
             padding: 3px;
             border: 1px solid #999999;
             background: #fff;
-            z-index: 1; }
+            z-index: 1;
+            transition: all .7s ease; }
+          .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-feed-effect, .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-clean-effect, .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .game-command-animate-play-effect {
+            box-shadow: 4px 2px 2px #cccccc;
+            background-color: #fff;
+            box-shadow: 0 0 60px 30px black, 0 0 80px 40px #ff790c, 0 0 140px 90px #f83b02; }
           .main-section .game .game-panel .game-panel__points-animation_columns .game-panel__column .points-animate {
             position: absolute;
             display: flex;

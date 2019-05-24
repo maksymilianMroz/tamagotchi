@@ -17,7 +17,7 @@
     <main class="main-section">
         <nav class="game-navigation">
 
-            <button class="startBtn">start</button>
+            <button class="startBtn">play</button>
 
             <div class="your-scores">
                 <h5 class="your-scores--margin">Your last score:</h5>
@@ -132,11 +132,22 @@
 
                 <section class="game-btns">
 
-                    <button class="btn game-btns__feed">FEED</button>
+                    <div class="game-btn-container">
+                        <button class="btn game-btns__feed">FEED</button>
+                        <img class="btn-container-img btn-container-img-feed btn-img-hide" src="https://image.flaticon.com/icons/svg/135/135728.svg" alt="feed img">
+                    </div>
 
-                    <button class="btn game-btns__clean">CLEAN</button>
+                    <div class="game-btn-container">
+                        <button class="btn game-btns__clean">CLEAN</button>
+                        <img class="btn-container-img btn-container-img-clean btn-img-hide"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/PEO-shit.svg/64px-PEO-shit.svg.png"
+                            alt="clean img">
+                    </div>
 
-                    <button class="btn game-btns__play">PLAY</button>
+                    <div class="game-btn-container">
+                        <button class="btn game-btns__play">PLAY</button>
+                        <img class="btn-container-img btn-container-img-play btn-img-hide" src="https://svgsilh.com/svg/1294077.svg" alt="play img">
+                    </div>
 
                 </section>
 
@@ -150,21 +161,21 @@
 
                     <div class="game-panel__column game-panel__column--feed">
 
-                        <div class="game-command">FEED NOW!</div>
+                        <div class="game-command game-command-animate-feed">FEED NOW!</div>
 
 
                     </div>
 
                     <div class="game-panel__column game-panel__column--clean">
 
-                        <div class="game-command">CLEAN NOW!</div>
+                        <div class="game-command game-command-animate-clean">CLEAN NOW!</div>
 
 
                     </div>
 
                     <div class="game-panel__column game-panel__column--play">
 
-                        <div class="game-command">PLAY NOW!</div>
+                        <div class="game-command game-command-animate-play">PLAY NOW!</div>
 
 
                     </div>

@@ -48,6 +48,16 @@
             border: 1px solid rgb(153, 153, 153);
             background: #fff;
             z-index: 1;
+            transition: all .7s ease;
+        }
+
+        .game-command-animate-feed-effect, .game-command-animate-clean-effect, .game-command-animate-play-effect {
+            box-shadow: 4px 2px 2px rgb(204, 204, 204);
+            background-color: #fff;
+            box-shadow:
+                0 0 60px 30px rgb(0, 0, 0), 
+                0 0 80px 40px rgb(255, 121, 12), 
+                0 0 140px 90px rgb(248, 59, 2); 
         }
 
         .points-animate {
