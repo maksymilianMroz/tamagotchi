@@ -36,9 +36,8 @@ let timeLeft = 55;
 let startBtn = document.querySelector('.startBtn');
 let gameNav = document.querySelector('.game-navigation');
 let yourLastScore = document.querySelector('.last-game-score');
-let bestScoreFirst = document.querySelector('.your-scores-top-three--first');
-let bestScoreSecond = document.querySelector('.your-scores-top-three--second');
-let bestScoreThird = document.querySelector('.your-scores-top-three--third');
+let bestScore = document.querySelector('.your-top-score');
+
 
 /* ARRAY IN WHICH WILL SAVE YOUR SCORES */
 let yourTopScores = [];
@@ -59,7 +58,7 @@ let addPoint = () => {
         if (addPointsCounter === 10) {
             timeLeft = timeLeft + 5;
             addPointsCounter = 0;
-            console.log('add time działa')
+            // console.log('add time działa')
         }
     }
     addTime();
@@ -86,7 +85,7 @@ let removePoint = () => {
         if (subPointsCounter === 4) {
             timeLeft = timeLeft - 8;
             subPointsCounter = 0;
-            console.log('sub time działa')
+            // console.log('sub time działa')
         }
     }
     subTime();
@@ -192,16 +191,8 @@ let timer = () => {
             gameNav.classList.remove("hide-nav");
             yourLastScore.innerHTML = scoreContainer.innerHTML;
             yourTopScores.push(yourLastScore.innerHTML);
-            if (yourTopScores[1] === undefined) {
-                yourTopScores.push(0);
-            }
-            if (yourTopScores[2] === undefined) {
-                yourTopScores.push(0);
-            }
-            yourTopScores.sort();
-            bestScoreFirst.innerHTML = yourTopScores[0];
-            bestScoreSecond.innerHTML = yourTopScores[1];
-            bestScoreThird.innerHTML = yourTopScores[2];
+            yourTopScores.sort((a, b) => b - a);
+            bestScore.innerHTML = yourTopScores[0];
             console.log(yourTopScores);
 
 
