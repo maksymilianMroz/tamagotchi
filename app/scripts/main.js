@@ -117,7 +117,6 @@ let timer = () => {
     /* STUFF WHICH WILL HAPPEN JUST AFTER CLICKING START THE GAME */
     gameNav.classList.add("hide-nav");
 
-
     /* SETTING STATE OF ALL NEEDS TO FALSE AT THE START OF THE GAME - IF WE CLICK WRONG BUTTON AFTER STARTING THE GAME YOU WILL SUBSTRACT YOUR POINTS - EVEN IF THERE WAS NO CALL FOR EATING< CLEANING OR PLAYING */
     let hungry = false;
     let dirty = false;
@@ -204,19 +203,40 @@ let timer = () => {
             bestScore.innerHTML = yourTopScores[0];
             console.log(yourTopScores);
 
-            /* FUNCTION DELETES ALL CREATED DIV - WITH POINTS - WHEN GAME IS DONE */
-            function deleteChild() { 
-                let containerForElementsToDelete = document.querySelectorAll(".delete-after-game"); 
-                console.log(containerForElementsToDelete);
-                
-                
-                let child = containerForElementsToDelete.childNodes;  
-                while (child) { 
-                    containerForElementsToDelete.removeChild(child); 
-                    child = containerForElementsToDelete.childNodes; 
-                } 
-            } 
-            deleteChild();
+            /* FUNCTIONS DELETE ALL CREATED DIV - WITH VISUAL POINTS - WHEN GAME IS DONE */
+            function deleteChildFeed() {
+                let feedElement = document.querySelector(".game-panel__column--feed");
+
+                let childFeed = feedElement.lastElementChild;
+                while (childFeed) {
+                    feedElement.removeChild(childFeed);
+                    childFeed = feedElement.lastElementChild;
+                }
+            }
+            deleteChildFeed();
+
+            function deleteChildClean() {
+                let cleanElement = document.querySelector(".game-panel__column--clean");
+
+                let childClean = cleanElement.lastElementChild;
+                while (childClean) {
+                    cleanElement.removeChild(childClean);
+                    childClean = cleanElement.lastElementChild;
+                }
+            }
+            deleteChildClean();
+
+            function deleteChildPlay() {
+                let playElement = document.querySelector(".game-panel__column--play");
+
+                let childPlay = playElement.lastElementChild;
+                while (childPlay) {
+                    playElement.removeChild(childPlay);
+                    childPlay = playElement.lastElementChild;
+                }
+            }
+            deleteChildPlay();
+
 
 
         } else if (randomNumber > 70) {
