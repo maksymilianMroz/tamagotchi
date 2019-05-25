@@ -19,7 +19,8 @@ petMouth = document.querySelector('.pet__mouth');
 petTongue = document.querySelector('.pet__tongue');
 rightEye = document.querySelector('.pet_eyes--right');
 leftEye = document.querySelector('.pet_eyes--left');
-whitePartOfEyes = document.querySelector('.pet_eyes--white-part');
+whitePartOfEyesLeft = document.querySelector('.pet_eyes--white-part--left');
+whitePartOfEyesRight = document.querySelector('.pet_eyes--white-part--right');
 
 playImgAnimation = document.querySelector('.btn-container-img-play');
 feedImgAnimation = document.querySelector('.btn-container-img-feed');
@@ -135,7 +136,8 @@ let timer = () => {
         petTongue.classList.remove('pet__tongue--dead');
         rightEye.classList.remove('pet_eyes--right--dead');
         leftEye.classList.remove('pet_eyes--left--dead');
-        whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+        whitePartOfEyesLeft.classList.remove('pet_eyes--white-part--left--dead');
+        whitePartOfEyesRight.classList.remove('pet_eyes--white-part--right--dead');
         petHands.classList.remove('pet__hands--dead');
         petHandsRight.classList.remove('pet__hands--right--dead');
         rightEar.classList.remove('pet__ears--right--sad');
@@ -204,7 +206,8 @@ let timer = () => {
             petTongue.classList.remove('pet__tongue--dead');
             rightEye.classList.remove('pet_eyes--right--dead');
             leftEye.classList.remove('pet_eyes--left--dead');
-            whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+            whitePartOfEyesLeft.classList.remove('pet_eyes--white-part--left--dead');
+            whitePartOfEyesRight.classList.remove('pet_eyes--white-part--right--dead');
             petHands.classList.remove('pet__hands--dead');
             petHandsRight.classList.remove('pet__hands--right--dead');
             rightEar.classList.remove('pet__ears--right--sad');
@@ -223,7 +226,8 @@ let timer = () => {
             petTongue.classList.remove('pet__tongue--dead');
             rightEye.classList.remove('pet_eyes--right--dead');
             leftEye.classList.remove('pet_eyes--left--dead');
-            whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+            whitePartOfEyesLeft.classList.remove('pet_eyes--white-part--left--dead');
+            whitePartOfEyesRight.classList.remove('pet_eyes--white-part--right--dead');
             petHands.classList.remove('pet__hands--dead');
             petHandsRight.classList.remove('pet__hands--right--dead');
             rightEar.classList.add('pet__ears--right--sad');
@@ -240,7 +244,8 @@ let timer = () => {
             petTongue.classList.add('pet__tongue--dead');
             rightEye.classList.add('pet_eyes--right--dead');
             leftEye.classList.add('pet_eyes--left--dead');
-            whitePartOfEyes.classList.add('pet_eyes--white-part--dead');
+            whitePartOfEyesLeft.classList.add('pet_eyes--white-part--left--dead');
+            whitePartOfEyesRight.classList.add('pet_eyes--white-part--right--dead');
             petHands.classList.add('pet__hands--dead');
             petHandsRight.classList.add('pet__hands--right--dead');
             rightEar.classList.remove('pet__ears--right--sad');

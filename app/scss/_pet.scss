@@ -123,6 +123,7 @@ HAPPY 18 <
       height: 14px;
       display: flex;
       justify-content: center;
+      transition: all 2s ease;
 
       .pet_eyes--left,
       .pet_eyes--right {
@@ -136,7 +137,8 @@ HAPPY 18 <
         align-items: center;
         transition: all 2s ease;
 
-        .pet_eyes--white-part {
+        .pet_eyes--white-part--left,
+        .pet_eyes--white-part--right {
           height: 40%;
           width: 40%;
           border-radius: 50%;
@@ -386,7 +388,7 @@ HAPPY 18 <
       .pet_eyes--right--dead {
         clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 
-        .pet_eyes--white-part--dead {
+        .pet_eyes--white-part--left--dead, .pet_eyes--white-part--right--dead {
           display: none;
         }
       }
