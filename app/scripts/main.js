@@ -10,6 +10,17 @@ let addPointsCounter = 0;
 let subPointsCounter = 0;
 
 /* VARIABLES FOR GAME ANIMATIONS */
+rightEar = document.querySelector('.pet__ears--right');
+leftEar = document.querySelector('.pet__ears--left');
+petHands = document.querySelector('.pet__hands');
+petHandsLeft = document.querySelector('.pet__hands--left');
+petHandsRight = document.querySelector('.pet__hands--right');
+petMouth = document.querySelector('.pet__mouth');
+petTongue = document.querySelector('.pet__tongue');
+rightEye = document.querySelector('.pet_eyes--right');
+leftEye = document.querySelector('.pet_eyes--left');
+whitePartOfEyes = document.querySelector('.pet_eyes--white-part');
+
 playImgAnimation = document.querySelector('.btn-container-img-play');
 feedImgAnimation = document.querySelector('.btn-container-img-feed');
 cleanImgAnimation = document.querySelector('.btn-container-img-clean');
@@ -111,6 +122,7 @@ let removePoint = () => {
 
 /****************** FUNCTION WHICH IS BODY FOR ALL THE PROCESSES OF THE GAME ******************/
 let timer = () => {
+
     if (timeLeft < 0) {
         timeLeft = 55;
     }
@@ -155,7 +167,84 @@ let timer = () => {
     /* LOGIC WHICH STANDS BEFORE THE GAME */
     let gameStuff = setInterval(() => {
 
-        // gameStartState();
+        /* CHANGE HOW PET LOOKS LIKE ACCORDING TO SCORE */
+        if (scoreContainer.innerHTML > 18) {
+            document.querySelector('body').style.background = 'green';
+            document.querySelector('.stars-container').style.display = 'grid';
+            rightEar.classList.add('pet__ears--right--happy');
+            petHands.classList.add('.pet__hands--happy');
+            petHandsLeft.classList.add('.pet__hands--left--happy');
+            rightEar.classList.remove('pet__ears--right--dead');
+            rightEar.classList.remove('pet__ears--left--dead');
+            petMouth.classList.remove('pet__mouth--dead');
+            petTongue.classList.remove('pet__tongue--dead');
+            rightEye.classList.remove('pet_eyes--right--dead');
+            leftEye.classList.remove('pet_eyes--left--dead');
+            whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+            petHands.classList.remove('pet__hands--dead');
+            petHandsRight.classList.remove('pet__hands--right--dead');
+            rightEar.classList.remove('pet__ears--right--sad');
+            leftEar.classList.remove('pet__ears--left--sad');
+            petMouth.classList.remove('pet__mouth--sad');
+            petTongue.classList.remove('pet__tongue--sad');
+            petHands.classList.remove('pet__hands--sad');
+            petHandsRight.classList.remove('pet__hands--right');
+        } else if ((scoreContainer.innerHTML > -4 && (scoreContainer.innerHTML <= 18))) {
+            document.querySelector('body').style.background = 'yellow';
+            document.querySelector('.stars-container').style.display = 'none';
+            rightEar.classList.remove('pet__ears--right--happy');
+            petHands.classList.remove('.pet__hands--happy');
+            petHandsLeft.classList.remove('.pet__hands--left--happy');
+            rightEar.classList.remove('pet__ears--right--dead');
+            rightEar.classList.remove('pet__ears--left--dead');
+            petMouth.classList.remove('pet__mouth--dead');
+            petTongue.classList.remove('pet__tongue--dead');
+            rightEye.classList.remove('pet_eyes--right--dead');
+            leftEye.classList.remove('pet_eyes--left--dead');
+            whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+            petHands.classList.remove('pet__hands--dead');
+            petHandsRight.classList.remove('pet__hands--right--dead');
+            rightEar.classList.remove('pet__ears--right--sad');
+            leftEar.classList.remove('pet__ears--left--sad');
+            petMouth.classList.remove('pet__mouth--sad');
+            petTongue.classList.remove('pet__tongue--sad');
+            petHands.classList.remove('pet__hands--sad');
+            petHandsRight.classList.remove('pet__hands--right');
+        } else if ((scoreContainer.innerHTML > -10) && (scoreContainer.innerHTML <= -4)) {
+            document.querySelector('body').style.background = 'orange';
+            rightEar.classList.remove('pet__ears--right--dead');
+            leftEar.classList.remove('pet__ears--left--dead');
+            petMouth.classList.remove('pet__mouth--dead');
+            petTongue.classList.remove('pet__tongue--dead');
+            rightEye.classList.remove('pet_eyes--right--dead');
+            leftEye.classList.remove('pet_eyes--left--dead');
+            whitePartOfEyes.classList.remove('pet_eyes--white-part--dead');
+            petHands.classList.remove('pet__hands--dead');
+            petHandsRight.classList.remove('pet__hands--right--dead');
+            rightEar.classList.add('pet__ears--right--sad');
+            leftEar.classList.add('pet__ears--left--sad');
+            petMouth.classList.add('pet__mouth--sad');
+            petTongue.classList.add('pet__tongue--sad');
+            petHands.classList.add('pet__hands--sad');
+            petHandsRight.classList.add('pet__hands--right');
+        } else if (scoreContainer.innerHTML <= -10) {
+            document.querySelector('body').style.background = 'red';
+            rightEar.classList.add('pet__ears--right--dead');
+            leftEar.classList.add('pet__ears--left--dead');
+            petMouth.classList.add('pet__mouth--dead');
+            petTongue.classList.add('pet__tongue--dead');
+            rightEye.classList.add('pet_eyes--right--dead');
+            leftEye.classList.add('pet_eyes--left--dead');
+            whitePartOfEyes.classList.add('pet_eyes--white-part--dead');
+            petHands.classList.add('pet__hands--dead');
+            petHandsRight.classList.add('pet__hands--right--dead');
+            rightEar.classList.remove('pet__ears--right--sad');
+            leftEar.classList.remove('pet__ears--left--sad');
+            petMouth.classList.remove('pet__mouth--sad');
+            petTongue.classList.remove('pet__tongue--sad');
+            petHands.classList.remove('pet__hands--sad');
+            petHandsRight.classList.remove('pet__hands--right');
+        }
 
         /* RESET STATES OF ALL NEEDS AFTER CHANGE RANDOM NUMBER - IT'S IN SETINTERVAL SO WILL BE DOING THIS AGAIN, AND AGAIN, ETC. */
         if (hungry === true) {
@@ -227,7 +316,7 @@ let timer = () => {
             }
             deleteChild();
 
-           
+
 
 
 
