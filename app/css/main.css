@@ -5,7 +5,8 @@
   font-family: 'Gugi', cursive; }
 
 body {
-  background: #dfdfdf; }
+  background: #dfdfdf;
+  transition: all 2s ease; }
 
 .main-section {
   width: 80%;
@@ -171,7 +172,8 @@ HAPPY 18 <
               z-index: 0;
               transform: rotate(125deg);
               top: -20px;
-              left: 104px; }
+              left: 104px;
+              transition: all 2s ease; }
             .main-section .game .game-window .pet-container .pet__body .pet__ears .pet__ears--right {
               width: 96px;
               box-sizing: content-box;
@@ -189,7 +191,8 @@ HAPPY 18 <
               animation: rotate-ear;
               animation-delay: .5s;
               animation-duration: 3.1s;
-              animation-iteration-count: infinite; }
+              animation-iteration-count: infinite;
+              transition: all 2s ease; }
           .main-section .game .game-window .pet-container .pet__body .pet__face {
             display: flex;
             justify-content: center;
@@ -209,7 +212,8 @@ HAPPY 18 <
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
-                align-items: center; }
+                align-items: center;
+                transition: all 2s ease; }
                 .main-section .game .game-window .pet-container .pet__body .pet__face .pet__eyes .pet_eyes--left .pet_eyes--white-part,
                 .main-section .game .game-window .pet-container .pet__body .pet__face .pet__eyes .pet_eyes--right .pet_eyes--white-part {
                   height: 40%;
@@ -217,7 +221,8 @@ HAPPY 18 <
                   border-radius: 50%;
                   background: #fff;
                   margin-left: 2px;
-                  margin-bottom: 2px; }
+                  margin-bottom: 2px;
+                  transition: all 2s ease; }
             .main-section .game .game-window .pet-container .pet__body .pet__face .pet__nose {
               height: 5px;
               width: 7px;
@@ -268,7 +273,8 @@ HAPPY 18 <
               border-radius: 50%;
               box-shadow: 1px 21px 0 0 #3b0f13;
               position: absolute;
-              top: 40px; }
+              top: 40px;
+              transition: all 2s ease; }
               .main-section .game .game-window .pet-container .pet__body .pet__face .pet__mouth .pet__tongue {
                 width: 19px;
                 height: 13px;
@@ -276,12 +282,14 @@ HAPPY 18 <
                 box-shadow: 1px -13px 0px 0px #ff9daf;
                 position: absolute;
                 top: 49px;
-                left: 5px; }
+                left: 5px;
+                transition: all 2s ease; }
           .main-section .game .game-window .pet-container .pet__body .pet__hands {
             background: transparent;
             height: 30%;
             position: relative;
-            top: 15px; }
+            top: 15px;
+            transition: all 2s ease; }
             .main-section .game .game-window .pet-container .pet__body .pet__hands .pet__hands--left {
               height: 136%;
               background: #eff5a2;
@@ -290,7 +298,8 @@ HAPPY 18 <
               border-radius: 134% 0 86% 72% / 83% 71% 80% 80%;
               position: absolute;
               left: -22px;
-              top: 5px; }
+              top: 5px;
+              transition: all 2s ease; }
             .main-section .game .game-window .pet-container .pet__body .pet__hands .pet__hands--right {
               height: 136%;
               background: #eff5a2;
@@ -304,7 +313,8 @@ HAPPY 18 <
               animation: right-hand-move;
               animation-delay: .5s;
               animation-duration: 1.1s;
-              animation-iteration-count: infinite; }
+              animation-iteration-count: infinite;
+              transition: all 2s ease; }
           .main-section .game .game-window .pet-container .pet__body .pet__legs {
             background: transparent;
             height: 30%;
@@ -377,35 +387,26 @@ HAPPY 18 <
           .main-section .game .game-window .pet-container .pet__body .pet__face .pet__eyes .pet_eyes--left--dead .pet_eyes--white-part--dead,
           .main-section .game .game-window .pet-container .pet__body .pet__face .pet__eyes .pet_eyes--right--dead .pet_eyes--white-part--dead {
             display: none; }
-        .main-section .game .game-window .pet-container .pet__body .pet__hands--dead {
-          background: transparent;
-          height: 30%;
-          position: relative;
-          top: 15px; }
-          .main-section .game .game-window .pet-container .pet__body .pet__hands--dead .pet__hands--right--dead {
-            border-radius: 99% 0% 8% 136% / 68% 72% 67% 77%;
-            right: -36px;
-            top: -2px;
-            transform: rotate(179deg);
-            animation: none; }
+        .main-section .game .game-window .pet-container .pet__body .pet__hands .pet__hands--right--dead {
+          border-radius: 99% 0% 8% 136% / 68% 72% 67% 77%;
+          right: -36px;
+          top: -2px;
+          transform: rotate(179deg);
+          animation: none; }
         .main-section .game .game-window .pet-container .pet__body .pet__ears .pet__ears--right--happy {
           transform: rotate(55deg);
           top: -66px;
           left: 0px;
           animation: none; }
-        .main-section .game .game-window .pet-container .pet__body .pet__hands--happy {
-          background: transparent;
-          height: 30%;
-          position: relative;
-          top: 15px; }
-          .main-section .game .game-window .pet-container .pet__body .pet__hands--happy .pet__hands--left--happy {
-            animation: none;
-            transform: rotate(100deg);
-            top: -32px;
-            animation: left-hand-move;
-            animation-delay: .5s;
-            animation-duration: 2.1s;
-            animation-iteration-count: infinite; }
+        .main-section .game .game-window .pet-container .pet__body .pet__hands .pet__hands--left--happy {
+          animation: none;
+          transform: rotate(100deg);
+          top: -32px;
+          left: 0;
+          animation: left-hand-move;
+          animation-delay: .5s;
+          animation-duration: 2.1s;
+          animation-iteration-count: infinite; }
         .main-section .game .game-window .pet-container .stars-container {
           position: absolute;
           height: 100%;
@@ -418,7 +419,8 @@ HAPPY 18 <
           grid-column-gap: 20px;
           grid-row-gap: 20px;
           justify-items: stretch;
-          align-items: stretch; }
+          align-items: stretch;
+          transition: all 2s ease; }
           .main-section .game .game-window .pet-container .stars-container [class^="star-"] {
             height: 18px;
             width: 18px;

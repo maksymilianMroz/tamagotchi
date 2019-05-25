@@ -128,7 +128,7 @@ let timer = () => {
         document.querySelector('.stars-container').style.display = 'none';
         rightEar.classList.remove('pet__ears--right--happy');
         petHands.classList.remove('.pet__hands--happy');
-        petHandsLeft.classList.remove('.pet__hands--left--happy');
+        petHandsLeft.classList.remove('pet__hands--left--happy');
         rightEar.classList.remove('pet__ears--right--dead');
         leftEar.classList.remove('pet__ears--left--dead');
         petMouth.classList.remove('pet__mouth--dead');
@@ -197,7 +197,7 @@ let timer = () => {
             document.querySelector('.stars-container').style.display = 'grid';
             rightEar.classList.add('pet__ears--right--happy');
             petHands.classList.add('.pet__hands--happy');
-            petHandsLeft.classList.add('.pet__hands--left--happy');
+            petHandsLeft.classList.add('pet__hands--left--happy');
             rightEar.classList.remove('pet__ears--right--dead');
             leftEar.classList.remove('pet__ears--left--dead');
             petMouth.classList.remove('pet__mouth--dead');
