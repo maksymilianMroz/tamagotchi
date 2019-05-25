@@ -204,38 +204,30 @@ let timer = () => {
             console.log(yourTopScores);
 
             /* FUNCTIONS DELETE ALL CREATED DIV - WITH VISUAL POINTS - WHEN GAME IS DONE */
-            function deleteChildFeed() {
+            function deleteChild() {
                 let feedElement = document.querySelector(".game-panel__column--feed");
+                let cleanElement = document.querySelector(".game-panel__column--clean");
+                let playElement = document.querySelector(".game-panel__column--play");
 
                 let childFeed = feedElement.lastElementChild;
                 while (childFeed) {
                     feedElement.removeChild(childFeed);
                     childFeed = feedElement.lastElementChild;
                 }
-            }
-            deleteChildFeed();
-
-            function deleteChildClean() {
-                let cleanElement = document.querySelector(".game-panel__column--clean");
-
                 let childClean = cleanElement.lastElementChild;
                 while (childClean) {
                     cleanElement.removeChild(childClean);
                     childClean = cleanElement.lastElementChild;
                 }
-            }
-            deleteChildClean();
-
-            function deleteChildPlay() {
-                let playElement = document.querySelector(".game-panel__column--play");
-
                 let childPlay = playElement.lastElementChild;
                 while (childPlay) {
                     playElement.removeChild(childPlay);
                     childPlay = playElement.lastElementChild;
                 }
             }
-            deleteChildPlay();
+            deleteChild();
+
+           
 
 
 
