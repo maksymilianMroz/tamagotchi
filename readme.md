@@ -1,6 +1,6 @@
 # This is my Tamagotchi-like game!
 
-**Hi. This is game which I did for my javascript practice - I know I could make this code cleaner, but in this very moment when I did this, I gave it 100% from myself. 
+**Hi. This is game which I did for my javascript practice - I know I could make this code cleaner, reduce duplication and correct some mistakes and omissions, but in this very moment when I did this, I gave it 100% from myself. I don't really plan to improve this project. I will probably write a new version from scratch, taking into account everything I have learned up to this point.
 
 ## Short guide
 
